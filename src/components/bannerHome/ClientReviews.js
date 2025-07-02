@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
+import { clientsReviewData } from '@/src/shared/clientReviewData';
 const reviews = [
   {
     avatar: '/assests/img/Tarmeet.webp',
@@ -105,14 +105,15 @@ const ClientReviews = () => {
             keyBoardControl={true}
             containerClass="client-reviews-carousel-container"
             itemClass="client-reviews-carousel-item"
+            transitionDuration={600}
           >
-            {reviews.map((review, idx) => (
+            {clientsReviewData.map((review, idx) => (
               <div className="client-reviews-card" key={idx}>
                 <div className="d-flex align-items-center mb-2">
                   <img src={review.avatar} alt={review.name} className="client-reviews-avatar me-2" />
                   <div>
                     <div className="client-reviews-name">{review.name}</div>
-                    <div className="client-reviews-title">{review.title}</div>
+                    <div className="client-reviews-title">{review.title + ", " + review.company}</div>
                     <div className="client-reviews-rating">5.0 {stars(review.rating)}</div>
                   </div>
                 </div>
@@ -138,15 +139,16 @@ const ClientReviews = () => {
             keyBoardControl={true}
             containerClass="client-reviews-carousel-container"
             itemClass="client-reviews-carousel-item"
-            rtl={true}
+            transitionDuration={900}
+          
           >
-            {reviews.map((review, idx) => (
+            {clientsReviewData.map((review, idx) => (
               <div className="client-reviews-card" key={idx}>
                 <div className="d-flex align-items-center mb-2">
                   <img src={review.avatar} alt={review.name} className="client-reviews-avatar me-2" />
                   <div>
                     <div className="client-reviews-name">{review.name}</div>
-                    <div className="client-reviews-title">{review.title}</div>
+                    <div className="client-reviews-title">{review.title + ", " + review.company}</div>
                     <div className="client-reviews-rating">5.0 {stars(review.rating)}</div>
                   </div>
                 </div>
