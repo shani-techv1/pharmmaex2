@@ -9,9 +9,6 @@ import ContactUs from "@/src/components/bannerHome/ContactUs";
 import ExhibitionQueries from "@/src/components/bannerHome/ExhibitionQueries";
 import Ticker from "@/src/components/bannerHome/Ticker";
 
- 
-
- 
 
 export default function About() {
   return (
