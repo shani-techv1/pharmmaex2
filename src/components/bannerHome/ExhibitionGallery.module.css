@@ -52,7 +52,7 @@
   width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
- 
+
   background: #f5f5f5;
   display: flex;
   align-items: center;
@@ -93,7 +93,7 @@
     padding: 0.4rem 1rem;
   }
   .galleryGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 6px;
     padding: 0 1vw;
   }
@@ -104,4 +104,4 @@
   color: #fff !important;
   font-weight: bold;
   border: 1.5px solid #009688 !important;
-} 
+}

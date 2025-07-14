@@ -23,4 +23,10 @@
   .react-multi-carousel-dot-list {
     bottom: -15px !important;
   }
+  .exhibition-series-upcoming-img {
+    margin: 0 auto;
+  }
+  .key-sponsors-row {
+    flex-wrap: wrap;
+  }
 }
