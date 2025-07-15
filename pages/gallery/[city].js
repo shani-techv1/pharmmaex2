@@ -51,13 +51,13 @@ export default function Gallery({ city: initialCity }) {
       <Header />
       <InnerPageBanner pageName={`Gallery`} bgIage="/assests/img/gallerybanner.svg" />
       <div className={gstyles.gallerySection}>
-      <div className='container innerContainer'>
+      <div className='container innerContainer galleryPage'>
         <div className={gstyles.galleryHeader} style={{ justifyContent: 'center' }}>
           <h2 className={gstyles.heading}>Our Exhibition Photos Gallery</h2>
         </div>
       </div>
       {/* City Tabs */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: 16, margin: '0 0 40px 0' }}>
+      <div className="gallerPageButtonGroup" style={{ display: 'flex', justifyContent: 'center', gap: 16, margin: '0 0 40px 0',overflowX: 'auto' }}>
         {locations.map((loc) => (
           <button
             key={loc.id}

@@ -46,3 +46,35 @@
   margin-top: 12px;
   color: #555;
 }
+@media (max-width: 600px) {
+  .container {
+    margin: 30px 10px 0;
+    max-width: 100%;
+    padding: 0 5px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .slider {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .video {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .counter {
+    font-size: 0.95rem;
+  }
+}

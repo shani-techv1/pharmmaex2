@@ -7,7 +7,7 @@ const Header = () => {
             <div className='tobBarArea'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-6 col-md-6 col-sm-12'>
+                        <div className='col-lg-6 col-md-6 col-sm-6 '>
                             <ul className='topBarLeftInfo d-flex'>
                                 <li><a href='tel:+91-9258002828'>
                                     <img src='/assests/img/phone.svg' alt='Phone Icon' />
@@ -17,7 +17,7 @@ const Header = () => {
                                     shivam.sharma@pharmmaex.com</a></li>
                             </ul>
                         </div>
-                        <div className='col-lg-6 col-md-6 col-sm-12'>
+                        <div className='col-lg-6 col-md-6 col-sm-6  '>
                             <div className='topBarRightInfo'>
                                 <h3 className='text-end'>Organized by: <span>Devasya Media Pvt. Ltd.</span></h3>
                             </div>

@@ -1,6 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ExhibitionSeries = () => {
+   const eventDate = new Date("2025-10-03T17:05:00.000Z");
+  
+    const [timeLeft, setTimeLeft] = useState({
+      days: 0,
+      hours: 0,
+      minutes: 0,
+    });
+  
+    useEffect(() => {
+      const updateCountdown = () => {
+        const now = new Date();
+        const diff = eventDate.getTime() - now.getTime();
+  
+        if (diff > 0) {
+          const minutes = Math.floor(diff / (1000 * 60));
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  
+          setTimeLeft({ days, hours, minutes });
+        } else {
+          setTimeLeft({ days: 0, hours: 0, minutes: 0 });
+        }
+      };
+  
+      updateCountdown(); // initial call
+      const intervalId = setInterval(updateCountdown, 60 * 1000); // update every minute
+  
+      return () => clearInterval(intervalId); // cleanup
+    }, []);
   return (
     <section className="exhibition-series-section py-5">
       <div className="container innerContainer">
@@ -12,15 +41,21 @@ const ExhibitionSeries = () => {
             <img src="/assests/img/image58.svg" alt="Bombay Exhibition Centre" className="exhibition-series-upcoming-img rounded-4" />
             <div className="d-flex gap-3 align-items-center exhibition-series-countdown">
               <div className="exhibition-series-countdown-box">
-                <div className="fw-bold" style={{ fontSize: '2rem' }}>131</div>
+                <div className="fw-bold" style={{ fontSize: '2rem' }}>
+                  {timeLeft.days.toLocaleString()}
+                </div>
                 <div style={{ fontSize: '1rem' }}>Days</div>
               </div>
               <div className="exhibition-series-countdown-box">
-                <div className="fw-bold" style={{ fontSize: '2rem' }}>40</div>
+                <div className="fw-bold" style={{ fontSize: '2rem' }}>
+                  {timeLeft.hours.toLocaleString()}
+                </div>
                 <div style={{ fontSize: '1rem' }}>Hours</div>
               </div>
               <div className="exhibition-series-countdown-box">
-                <div className="fw-bold" style={{ fontSize: '2rem' }}>23</div>
+                <div className="fw-bold" style={{ fontSize: '2rem' }}>
+                  {timeLeft.minutes.toLocaleString()}
+                </div>
                 <div style={{ fontSize: '1rem' }}>Minutes</div>
               </div>
             </div>

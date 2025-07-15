@@ -26,7 +26,7 @@ const GalleryGrid = ({ images = [] }) => {
       </div>
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 24, gap: 8 }}>
+        <div className='pagination' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 24, gap: 8 }}>
           {/* Prev Arrow */}
           <button
             onClick={() => setPage(page - 1)}

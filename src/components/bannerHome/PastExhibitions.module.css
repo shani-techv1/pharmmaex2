@@ -231,4 +231,16 @@
   .carousel :global(.react-multi-carousel-item) {
     margin-right: 0.5rem;
   }
+  .timeline {
+  display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+  .timelineCircle {
+   width: 150px;
+    height: 150px;
+  }
+  .timelineLine {
+    display: none;
+  }
 } 
