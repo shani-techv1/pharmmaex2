@@ -248,6 +248,7 @@ const ContactUs = () => {
                   .contactLeftBox {
                     padding: 1.2rem 0.7rem 1rem 0.7rem;
                     border-radius: 0.7rem;
+                    margin-top: 4px;
                   }
                   .contactLeftBox h2 {
                     font-size: 1.1rem;
@@ -270,6 +271,9 @@ const ContactUs = () => {
                     flex-direction: column;
                     gap: 0.5rem;
                   }
+                    .submit-btn {
+                    width: 100%;
+            }
                 }
             `}</style>
         </div>

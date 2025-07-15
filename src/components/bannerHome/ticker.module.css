@@ -1,9 +1,9 @@
 .ticker {
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    z-index: 5;
+    z-index: 99;
     overflow: hidden;
   }
   
@@ -16,17 +16,19 @@
     white-space: nowrap;
   }
   
-  .marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 15s linear infinite;
+ .marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 25s linear infinite;
+ 
+ 
+}
+ 
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
   }
-  
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  } 
+  100% {
+    transform: translateX(-50%);
+  }
+}
