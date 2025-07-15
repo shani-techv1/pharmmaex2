@@ -2,9 +2,9 @@ import { useState } from "react";
 import styles from "./VideoSlider.module.css";
 
 const videoLinks = [
-    'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    'https://www.youtube.com/embed/ysz5S6PUM-U',
-    'https://www.youtube.com/embed/tgbNymZ7vqY',
+    'https://www.youtube.com/embed/QzsLDlDjMzw',
+    'https://www.youtube.com/embed/8RVapflKv6Y',
+    'https://www.youtube.com/embed/m-Dsj98Zo6c',
     // Add more video links as needed
   ];
   

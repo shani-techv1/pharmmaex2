@@ -196,4 +196,12 @@
   .refundList, .refundNote {
     font-size: 0.92rem;
   }
+  .eventHighlight{
+    display: block;
+    font-size: 0.9rem;
+  }
+  .fileInput{
+    width: 100%;
+    margin-bottom: 15px;
+  }
 } 
