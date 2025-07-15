@@ -85,14 +85,14 @@ const PastExhibitions = () => {
           <Carousel
             responsive={responsive}
             infinite={true}
-            arrows={true}
-            showDots={true}
+            arrows={false}
+            showDots={false}
             keyBoardControl={true}
             containerClass={styles.carousel}
             itemClass={styles.card}
             dotListClass={styles.carouselDots}
             renderButtonGroupOutside={false}
-            renderDotsOutside={true}
+            renderDotsOutside={false}
           >
             {exhibitions.map((ex, idx) => (
               <div className={styles.card} key={idx}>

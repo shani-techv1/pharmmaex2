@@ -141,7 +141,9 @@ ul {
 .join-pharma-btn-group {
   margin-top: 1.5rem;
 }
-
+.qrBanner{
+  display: none;
+}
 /* AboutHome section styles */
 .about-home-section {
   background: #fff;

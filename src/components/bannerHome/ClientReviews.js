@@ -124,7 +124,7 @@ const ClientReviews = () => {
         </div>
       </div>
     </section>
-    <section className="client-reviews-section client-reviews-section-row2 pt-1">
+    <section className="client-reviews-section client-reviews-section-row2 pt-1 ">
       <div className="client-reviews-overlay client-reviews-overlay-left"></div>
       <div className="client-reviews-overlay client-reviews-overlay-right"></div>
       <div className="container-fluid">

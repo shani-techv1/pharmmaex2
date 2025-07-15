@@ -1,6 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
+
+   const eventDate = new Date("2025-10-03T17:05:00.000Z");
+    
+      const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+      });
+    
+      useEffect(() => {
+        const updateCountdown = () => {
+          const now = new Date();
+          const diff = eventDate.getTime() - now.getTime();
+    
+          if (diff > 0) {
+            const minutes = Math.floor(diff / (1000 * 60));
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+            setTimeLeft({ days, hours, minutes });
+          } else {
+            setTimeLeft({ days: 0, hours: 0, minutes: 0 });
+          }
+        };
+    
+        updateCountdown(); // initial call
+        const intervalId = setInterval(updateCountdown, 60 * 1000); // update every minute
+    
+        return () => clearInterval(intervalId); // cleanup
+      }, []);
   return (
     <footer className="footer-section">
       <div className="footer-bg">
@@ -40,18 +70,24 @@ const Footer = () => {
               
             </div>
             <div className='col-lg-6 mb-4 mb-lg-0'>
-            <div className='d-flex'>
+            <div className='d-flex flex-wrap'>
             <div className="footer-countdown d-flex gap-2 mb-3 me-3">
                 <div className="footer-countdown-box">
-                  <div className="fw-bold">131</div>
+                  <div className="fw-bold">
+                    {timeLeft.days.toLocaleString()}
+                  </div>
                   <div>Days</div>
                 </div>
                 <div className="footer-countdown-box">
-                  <div className="fw-bold">40</div>
+                  <div className="fw-bold">
+                    {timeLeft.hours.toLocaleString()}
+                  </div>
                   <div>Hours</div>
                 </div>
                 <div className="footer-countdown-box">
-                  <div className="fw-bold">23</div>
+                  <div className="fw-bold">
+                    {timeLeft.minutes.toLocaleString()}
+                  </div>
                   <div>Minutes</div>
                 </div>
               </div>
@@ -81,12 +117,12 @@ const Footer = () => {
                 <div className="col-md-2 mb-4 mb-md-0">
                   <h5 className="footer-title">Quick Links</h5>
                   <ul className="footer-links">
-                    <li><a href="/#">Exhibitor Form</a></li>
-                    <li><a href="#">Visitor Registration</a></li>
+                    <li><a href="/exhibitor">Exhibitor Form</a></li>
+                    <li><a href="https://www.pharmmaexregistration.in/Pharmaex/visitor.aspx">Visitor Registration</a></li>
                     <li><a href="/gallery/hyderabad">Photo Gallery</a></li>
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/events">Past Events</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/past-exhibitions">Past Events</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
                   </ul>
                 </div>
                 <div className="col-md-2 mb-4 mb-md-0">

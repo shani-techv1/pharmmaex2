@@ -128,6 +128,8 @@
 @media (max-width: 600px) {
   .heading {
     font-size: 1.3rem;
+    width: 100%;
+    text-align: center;
   }
   .viewAllBtn {
     font-size: 0.9rem;
@@ -141,5 +143,14 @@
   }
   .cardImgWrapper {
     min-height: 120px;
+  }
+  .teamHeader{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .viewAllBtn{
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    width: 60%;
   }
 } 

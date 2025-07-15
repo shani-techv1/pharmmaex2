@@ -1,0 +1,191 @@
+@media only screen and (max-width: 767px) {
+   .topBarLeftInfo a {font-size: 0;}
+   .topBarRightInfo h3 {font-size: 10px;margin: 0;}
+   .tobBarArea .col-lg-6.col-md-6.col-sm-6 {
+    width: 60%;
+}
+
+.tobBarArea .col-lg-6.col-md-6.col-sm-6:nth-child(1) {
+    width: 30%;
+}
+
+.tobBarArea .row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tobBarArea {
+    height: 35px;
+}
+.countdownBoxArea {
+ margin-top: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+}
+.qrBanner{
+    display: block;
+    
+}
+.countdownBoxArea .fw-bold {
+    font-size: 20px !important;
+}
+
+.countdownBoxArea div {
+    font-size: 10px !important;
+}
+.countdownBoxArea  .mb-3 {
+    margin-bottom: 0 !important;
+}
+.join-pharma-heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.join-pharma-desc {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.join-pharma-btn-group a{
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+.join-pharma-section{
+    padding-bottom: 0 !important;
+}
+.about-home-heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.about-home-desc {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+.exhibition-series-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.exhibition-series-subtitle:after {
+    content: "";
+    background: #fff6;
+    width: 27%;
+}
+.exhibition-series-upcoming-img {
+    width: 100%;
+}
+.exhibition-series-btn-group .exhibition-series-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+.exhibition-series-card-details {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+.whats-in-exhibition-number{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.whats-in-exhibition-label {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+
+.eligibility-exhibitors-section{
+    padding-top: 30px !important;
+}
+.eligibility-exhibitors-heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.key-sponsors-section {
+    padding-top: 30px !important;
+}
+
+.key-sponsors-heading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.key-sponsors-row{
+    flex-wrap: wrap;
+}
+
+.our-exhibitors-section {
+    padding-top: 0px !important;
+}
+.our-exhibitors-heading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.our-exhibitors-card{
+    width: 48%;
+}
+
+.client-reviews-heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+            padding-left: 30px !important;
+   
+}
+.client-reviews-section .px-5{
+    padding: 0 !important;
+        justify-content: center !important;
+        flex-wrap: wrap;
+        text-align: center;
+}
+.client-reviews-more-btn{
+margin: 0 !important;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    display: none;
+
+}
+.client-reviews-section{
+    padding-top: 0px !important;
+}
+
+.footer-registration-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+
+
+
+.footer-registration-btns .btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+
+.StallText{
+    text-align: center !important;
+}
+.custom-upload{
+    margin-bottom: 20px;
+}
+.galleryPage{
+    margin-top: 20px;
+}
+.gallerPageButtonGroup{
+    flex-wrap: wrap;
+}
+.galery-btn{
+    width: 45%;
+    opacity: 1;
+}
+.pagination{
+    display: none !important;
+}
+.pastExhibitionsArea .row.pastrow:nth-child(2n){
+    margin-bottom: 20px;
+}
+.exhibition-series-card-btn{
+display: flex;
+width: 180px;
+}
+.client-reviews-section-row2{
+    display: none !important;
+}
+}

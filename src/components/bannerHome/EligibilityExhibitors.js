@@ -9,17 +9,17 @@ const eligibilityData = [
     desc: 'Allopathic professionals can attend to stay updated on pharmaceutical advancements and treatments.'
   },
   {
-    img: '/assests/img/p1.webp',
+    img: '/assests/img/itemimg3.webp',
     title: 'Ayurvedic',
     desc: 'Ayurvedic practitioners can showcase traditional remedies and holistic healing at our exhibitions.'
   },
   {
-    img: '/assests/img/p1.webp',
+    img: '/assests/img/itemimg5.webp',
     title: 'Cosmetic',
     desc: 'Cosmetic professionals can explore the latest trends in skincare and beauty.'
   },
   {
-    img: '/assests/img/p1.webp',
+    img: '/assests/img/itemimg4.webp',
     title: 'Herbal',
     desc: 'Herbal experts can present natural remedies and products to a wide audience.'
   }

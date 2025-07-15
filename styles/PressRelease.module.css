@@ -102,3 +102,92 @@
   font-size: 16px;
 }
 
+
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card {
+    max-width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding-top: 24px;
+  }
+  .title {
+    font-size: 2.2rem;
+    margin-top: 18px;
+  }
+  .description {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 0 12px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .card {
+    height: 280px;
+    padding: 8px;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin: 40px 0 20px;
+  }
+  .featureWrap {
+    gap: 12px;
+  }
+  .featureBox {
+    min-width: 160px;
+    max-width: 100%;
+    padding: 16px;
+    font-size: 15px;
+  }
+  .featureIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-bottom: 16px;
+  }
+  .inner {
+    padding-top: 12px;
+  }
+  .title {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+  .description {
+    font-size: 14px;
+    padding: 0 6px;
+  }
+  .card {
+    height: 180px;
+    padding: 4px;
+  }
+  .sectionTitle {
+    font-size: 1.1rem;
+    margin: 24px 0 10px;
+  }
+  .featureBox {
+    padding: 8px;
+    font-size: 13px;
+  }
+  .featureIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+}

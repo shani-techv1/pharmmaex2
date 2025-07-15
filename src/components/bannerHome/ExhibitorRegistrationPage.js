@@ -158,7 +158,7 @@ const ExhibitorRegistrationPage = () => {
                 <div className="col-md-4">
                   <div className={styles.optionsRow}>
                     
-                    <label className="text-end d-block w-100">
+                    <label className="text-end d-block w-100 StallText">
                      Stall No.
                     </label>
                   </div>
@@ -191,7 +191,7 @@ const ExhibitorRegistrationPage = () => {
                 <div className="col-md-4">
                   <div className={styles.optionsRow}>
                     
-                    <label className="text-end d-block w-100">
+                    <label className="text-end d-block w-100 StallText">
                     <span>Grand Total</span>
                     </label>
                   </div>

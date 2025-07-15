@@ -93,9 +93,13 @@
     padding: 0.4rem 1rem;
   }
   .galleryGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 6px;
     padding: 0 1vw;
+    width:100% !important ;
+  }
+  .galleryHeader{
+    padding-top: 0;
   }
 }
 
