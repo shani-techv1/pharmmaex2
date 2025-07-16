@@ -27,8 +27,8 @@ const Upcoming = () => {
             </div>
 
             <div className={styles.buttonGroup}>
-                <a href="/assets/pdf/PharmmaEx-Floor-Plan-mumbai.pdf" className="btn btn-success about-home-btn " download>Download Floor Plan</a>
-                <a href="/assets/pdf/pharmmaex-mumbai-Brochure-2025 (1).pdf" className="btn btn-outline-success about-home-btn" download>Download Brochure</a>
+                <a href="/assests/pdf/PharmmaEx-Floor-Plan-mumbai.pdf" className="btn btn-success about-home-btn " download>Download Floor Plan</a>
+                <a href="/assests/pdf/pharmmaex-mumbai-Brochure-2025 (1).pdf" className="btn btn-outline-success about-home-btn" download>Download Brochure</a>
             </div>
 
             <div className={styles.eventContainer}>
