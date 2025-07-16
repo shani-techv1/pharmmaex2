@@ -24,9 +24,9 @@ const KeySponsors = () => {
         <h2 className="key-sponsors-heading text-center">Our Key Sponsors</h2>
         <div className="key-sponsors-rows">
           {sponsors.map((row, rowIdx) => (
-            <div className="key-sponsors-row d-flex justify-content-center mb-3" key={rowIdx}>
+            <div className="key-sponsors-row d-flex justify-content-center mb-4" key={rowIdx}>
               {row.map((item, idx) => (
-                <div className="key-sponsors-card d-flex flex-column align-items-center justify-content-center" key={idx}>
+                <div className="key-sponsors-card d-flex flex-column align-items-center justify-content-center " key={idx}>
                   <div className="key-sponsors-label">{item.label}</div>
                   <img src={item.img} alt={item.label} className="key-sponsors-img" />
                 </div>
