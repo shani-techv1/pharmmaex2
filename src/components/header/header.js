@@ -60,7 +60,7 @@ const Header = () => {
                                 <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
                                     <li><a className="dropdown-item" href="/up-coming">Upcoming Events </a></li>
                                     <li><a className="dropdown-item" href="/past-exhibitions">Past Exhibitors</a></li>
-                                    <li><a className="dropdown-item" href="/sponsors-associations">Sponsors & Associations</a></li>        
+                                    <li><a className="dropdown-item" href="/sponsors-association">Sponsors & Associations</a></li>        
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
