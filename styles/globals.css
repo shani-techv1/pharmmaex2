@@ -336,7 +336,7 @@ filter: none;
 }
 
 .whats-in-exhibition-box {
-  background: rgba(255,255,255,0.13);
+  
   border-radius: 1.2rem;
   width: 210px;
   height: 180px;
@@ -347,6 +347,8 @@ filter: none;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
   color: #fff;
   text-align: center;
+   background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(10px); /* blur background behind */
 }
 
 .whats-in-exhibition-number {

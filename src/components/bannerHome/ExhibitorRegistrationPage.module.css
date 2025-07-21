@@ -45,7 +45,7 @@
 
 .formCard {
     z-index: 3;
-    background: #ffffff8c;
+ 
     border-radius: 1.2rem;
     width: 90%;
     margin: 0 auto 2.5rem;
@@ -53,6 +53,8 @@
     position: relative;
     top: -1.5rem;
     box-shadow: 0 2px 24px #0000001a;
+     background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(10px); /* blur background behind */
 }
 
 .formTitle {
