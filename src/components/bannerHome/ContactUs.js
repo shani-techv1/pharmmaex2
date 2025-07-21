@@ -21,8 +21,8 @@ const ContactUs = () => {
                     <p>03-04 October, 2025</p>
                 </div>
                 <div className="contact-btns">
-                    <a href="#" className="btn btn-outline-success">Pre-Registration</a>
-                    <a href="#" className="btn btn-outline-success">Become Exhibitor</a>
+                    <a href="https://www.pharmmaexregistration.in/Pharmaex/visitor.aspx" className="btn btn-outline-success">Pre-Registration</a>
+                    <a href="/exhibitor" className="btn btn-outline-success">Become Exhibitor</a>
                 </div>
             </div>
             <div className='contactRightBox'>
