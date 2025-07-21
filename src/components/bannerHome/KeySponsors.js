@@ -2,14 +2,17 @@ import React from 'react';
 import './KeySponser.module.css'
 const sponsors = [
   [
+    { label: 'Endorsed By', img: '/assests/img/Sponsor Logo/Sponsor Logo/Endorsed By.png' },
     { label: 'Industry Leaders', img: '/assests/img/Sponsor Logo/Sponsor Logo/Industry-Leader.png' },
     { label: 'Top Rankers', img: '/assests/img/Sponsor Logo/Sponsor Logo/Top-Ranker.png' },
     { label: 'Pharma Player', img: '/assests/img/Sponsor Logo/Sponsor Logo/Pharma-Player.png' },
     { label: 'Pharma Champion', img: '/assests/img/Sponsor Logo/Sponsor Logo/Pharma-Champion.png' },
-    { label: 'Supported Partners', img: '/assests/img/Sponsor Logo/Sponsor Logo/Supported-Partner.png' },
   ],
   [
-    { label: 'Endorsed By', img: '/assests/img/Sponsor Logo/Sponsor Logo/Endorsed By.png' },
+
+        { label: 'Supported Partners', img: '/assests/img/Sponsor Logo/Sponsor Logo/Supported-Partner.png' },
+
+    
     { label: 'Affilated Partner', img: '/assests/img/Sponsor Logo/Sponsor Logo/Affilate-Partner.jpg' },
    { label: 'Association-01', img: '/assests/img/Sponsor Logo/Sponsor Logo/Association-01.jpg' },
      { label: 'Association-02', img: '/assests/img/Sponsor Logo/Sponsor Logo/Association-02.jpg' },

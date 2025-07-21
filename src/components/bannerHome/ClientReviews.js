@@ -1,68 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 import { clientsReviewData } from '@/src/shared/clientReviewData';
-const reviews = [
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  },
-  {
-    avatar: '/assests/img/Tarmeet.webp',
-    name: 'Tarmeet Singh',
-    title: 'Director, Wahoo Wellness',
-    rating: 5,
-    text: 'We have been associating with PharmmaEx for the last many years, and every time they have come up with innovative ideas. They know what to deliver and that too on committed time.'
-  }
-];
-const stars = (count) =>Array.from({ length: count }, (_, i) => (
-    <span className="client-reviews-star" key={i}>★</span>
+
+const stars = (count) =>
+  Array.from({ length: count }, (_, i) => (
+    <span className="client-reviews-star" key={i}>
+      ★
+    </span>
   ));
 
 const responsive = {
@@ -85,6 +31,61 @@ const responsive = {
 };
 
 const ClientReviews = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Divide data into two halves
+  const middleIndex = Math.ceil(clientsReviewData.length / 2);
+  const firstHalf = clientsReviewData.slice(0, middleIndex);
+  const secondHalf = clientsReviewData.slice(middleIndex);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const renderCarousel = (data, key) => (
+    <Carousel
+      responsive={responsive}
+      infinite={true}
+      arrows={false}
+      showDots={false}
+      autoPlay={true}
+      keyBoardControl={true}
+      containerClass="client-reviews-carousel-container"
+      itemClass="client-reviews-carousel-item"
+      transitionDuration={600}
+      key={key}
+    >
+      {data.map((review, idx) => (
+        <div className="client-reviews-card" key={idx}>
+          <div className="d-flex align-items-center mb-2">
+            <img
+              src={review.avatar}
+              alt={review.name}
+              className="client-reviews-avatar me-2"
+            />
+            <div>
+              <div className="client-reviews-name">{review.name}</div>
+              <div className="client-reviews-title">
+                {review.title}, {review.company}
+              </div>
+              <div className="client-reviews-rating">
+                5.0 {stars(review.rating)}
+              </div>
+            </div>
+          </div>
+          <div className="client-reviews-text">{review.text}</div>
+        </div>
+      ))}
+    </Carousel>
+  );
+
   return (
     <>
       <section className="client-reviews-section">
@@ -93,87 +94,30 @@ const ClientReviews = () => {
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center mb-4 container px-5">
             <h2 className="client-reviews-heading ps-5">Our Clients Reviews</h2>
-            <button className="client-reviews-more-btn me-5">View more reviews</button>
+            <button className="client-reviews-more-btn me-5">
+              View more reviews
+            </button>
           </div>
+
           <div className="client-reviews-carousel">
-            <Carousel
-              responsive={responsive}
-              infinite={true}
-              arrows={false}
-              showDots={false}
-              autoPlay={true}
-              keyBoardControl={true}
-              containerClass="client-reviews-carousel-container"
-              itemClass="client-reviews-carousel-item"
-              transitionDuration={600}
-            >
-              {clientsReviewData.map((review, idx) => (
-                <div className="client-reviews-card" key={idx}>
-                  <div className="d-flex align-items-center mb-2">
-                    <Image
-                      src={review.avatar}
-                      alt={review.name}
-                      width={50}
-                      height={50}
-                      className="client-reviews-avatar me-2"
-                    />
-                    <div>
-                      <div className="client-reviews-name">{review.name}</div>
-                      <div className="client-reviews-title">
-                        {review.title + ", " + review.company}
-                      </div>
-                      <div className="client-reviews-rating">5.0 {stars(review.rating)}</div>
-                    </div>
-                  </div>
-                  <div className="client-reviews-text">{review.text}</div>
-                </div>
-              ))}
-            </Carousel>
+            {isMobile
+              ? renderCarousel(clientsReviewData, 'mobile')
+              : renderCarousel(firstHalf, 'first')}
           </div>
         </div>
       </section>
 
-      <section className="client-reviews-section client-reviews-section-row2 pt-1">
-        <div className="client-reviews-overlay client-reviews-overlay-left"></div>
-        <div className="client-reviews-overlay client-reviews-overlay-right"></div>
-        <div className="container-fluid">
-          <div className="client-reviews-carousel">
-            <Carousel
-              responsive={responsive}
-              infinite={true}
-              arrows={false}
-              showDots={false}
-              autoPlay={true}
-              keyBoardControl={true}
-              containerClass="client-reviews-carousel-container"
-              itemClass="client-reviews-carousel-item"
-              transitionDuration={900}
-            >
-              {clientsReviewData.map((review, idx) => (
-                <div className="client-reviews-card" key={idx}>
-                  <div className="d-flex align-items-center mb-2">
-                    <Image
-                      src={review.avatar}
-                      alt={review.name}
-                      width={50}
-                      height={50}
-                      className="client-reviews-avatar me-2"
-                    />
-                    <div>
-                      <div className="client-reviews-name">{review.name}</div>
-                      <div className="client-reviews-title">
-                        {review.title + ", " + review.company}
-                      </div>
-                      <div className="client-reviews-rating">5.0 {stars(review.rating)}</div>
-                    </div>
-                  </div>
-                  <div className="client-reviews-text">{review.text}</div>
-                </div>
-              ))}
-            </Carousel>
+      {!isMobile && (
+        <section className="client-reviews-section client-reviews-section-row2 pt-1">
+          <div className="client-reviews-overlay client-reviews-overlay-left"></div>
+          <div className="client-reviews-overlay client-reviews-overlay-right"></div>
+          <div className="container-fluid">
+            <div className="client-reviews-carousel">
+              {renderCarousel(secondHalf, 'second')}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 };
