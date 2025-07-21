@@ -4,22 +4,31 @@ import Image from 'next/image';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import pastEx1 from '../../../public/assests/img/past-ex1.svg';
+import pastExb1 from '../../../public/assests/img/pastex3.svg';
+import pastExb2 from '../../../public/assests/img/pastex2.svg';
+import pastExb3 from '../../../public/assests/img/pastex1.svg';
+import pastExb4 from '../../../public/assests/img/pastex4.svg';
 
 const exhibitions = [
   {
     date: '02-03 May, 2025',
     venue: 'HITEX Exhibition Centre, Hyderabad',
-    img: pastEx1,
+    img: pastExb1, // Replace with actual image path if needed
   },
   {
     date: '14-15 December, 2024',
     venue: 'Vigyan Bhawan, Science City, Ahmedabad',
-    img: pastEx1, // Replace with actual image path if needed
+    img: pastExb2, // Replace with actual image path if needed
   },
   {
     date: '21-22 June, 2024',
     venue: 'Auto Cluster, Chinchwad-Pune',
-    img: pastEx1, // Replace with actual image path if needed
+    img: pastExb3, // Replace with actual image path if needed
+  },
+  {
+    date: '02-03 February, 2024',
+    venue: 'Manpho Convention Centre, Bangalore',
+    img: pastExb4, // Replace with actual image path if needed
   },
 ];
 
@@ -102,9 +111,12 @@ const PastExhibitions = () => {
                   <div className={styles.cardText}>
                     <div className={styles.cardTitle}>{ex.date}<br />{ex.venue}</div>
                     <button className={styles.galleryBtn}>
-                      <span className={styles.galleryIcon}>
-                        <Image src="/assests/img/gaIIcon.svg" width={60}
-                          height={60} />
+                      <span className={styles.galleryIcon}
+                      
+                      onClick={() => window.open('/gallery/hyderabad', '_blank')}
+                      
+                      >
+                        <img src="/assests/img/gaIIcon.svg" />
                       </span> View Gallery
                     </button>
                   </div>
