@@ -1,0 +1,177 @@
+.contact-form-section {
+  padding: 20px 200px;
+  background: #fff;
+}
+
+.form-grid {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 30px;
+}
+
+.form-image img {
+  height: 90vh;
+}
+
+.form-box {
+  width: 70%;
+}
+
+.form-box h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-box h2 span {
+  color: #000;
+}
+
+.form-box p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+form input,
+form select,
+form textarea {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  border-radius: 4px;
+}
+
+form textarea {
+  width: 100%;
+  resize: none;
+}
+
+.submit-btn {
+  background: #00833d;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #006b32;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Large Tablet (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .contact-form-section {
+    padding: 20px 100px;
+  }
+  .form-image img {
+    height: 70vh;
+  }
+}
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+  .contact-form-section {
+    padding: 20px 60px;
+  }
+  .form-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .form-image img {
+    height: auto;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .form-box {
+    width: 100%;
+  }
+  .submit-btn {
+    align-self: center;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .contact-form-section {
+    padding: 20px 30px;
+  }
+  .form-box h2 {
+    font-size: 1.4rem;
+  }
+  .form-box p {
+    font-size: 0.9rem;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+  form input,
+  form select,
+  form textarea {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .submit-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  label{
+    display: none;
+  }
+  .contact-form-section {
+    padding: 15px;
+  }
+  .form-box h2 {
+    font-size: 1.2rem;
+  }
+  .form-box p {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  .submit-btn {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}

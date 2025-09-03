@@ -1,0 +1,474 @@
+/* Hero Section */
+.heroSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assests/img/bg-what.svg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--primary-color);
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.eventDetails {
+  margin-bottom: 30px;
+}
+
+.eventBox {
+  display: inline-block;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 15px 25px;
+  background: rgba(0, 131, 61, 0.05);
+  margin-bottom: 20px;
+}
+
+.eventDate {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.eventVenue {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary-color);
+  margin-bottom: 40px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+}
+
+.ctaButton.primary {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 131, 61, 0.3);
+}
+
+.ctaButton.primary:hover {
+  background: #006b33;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 131, 61, 0.4);
+}
+
+.ctaButton.secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.ctaButton.secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+/* Event Highlights Section */
+.highlightsSection {
+  padding: 100px 0;
+  background: white;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.highlightCard {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.highlightCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.highlightIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), #00a050);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: 0 10px 20px rgba(0, 131, 61, 0.2);
+}
+
+.highlightCard h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.highlightCard p {
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Venue Section */
+.venueSection {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.venueContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.venueDetails {
+  display: grid;
+  gap: 40px;
+}
+
+.venueItem {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.venueItem h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.venueItem p {
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.venueItem ul {
+  list-style: none;
+  padding: 0;
+}
+
+.venueItem li {
+  padding: 8px 0;
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 25px;
+}
+
+.venueItem li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.venueMap {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.mapPlaceholder {
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.mapPlaceholder p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+/* Registration Section */
+.registrationSection {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #00a050 100%);
+  color: white;
+  text-align: center;
+}
+
+.registrationContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.registrationContent p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.registrationButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.registrationButtons .ctaButton.primary {
+  background: white;
+  color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.registrationButtons .ctaButton.primary:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.registrationButtons .ctaButton.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.registrationButtons .ctaButton.secondary:hover {
+  background: white;
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  
+  .venueContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 60px 0;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .registrationButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registrationButtons .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .eventBox {
+    padding: 12px 20px;
+  }
+  
+  .eventDate {
+    font-size: 1rem;
+  }
+  
+  .eventVenue {
+    font-size: 0.9rem;
+  }
+  
+  .highlightCard {
+    padding: 30px 20px;
+  }
+  
+  .venueItem {
+    padding: 20px;
+  }
+  
+  .registrationContent h2 {
+    font-size: 2rem;
+  }
+  
+  .registrationContent p {
+    font-size: 1rem;
+  }
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroText,
+.heroImage,
+.highlightCard,
+.venueItem {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.highlightCard:nth-child(1) { animation-delay: 0.1s; }
+.highlightCard:nth-child(2) { animation-delay: 0.2s; }
+.highlightCard:nth-child(3) { animation-delay: 0.3s; }
+.highlightCard:nth-child(4) { animation-delay: 0.4s; }

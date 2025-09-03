@@ -1,0 +1,175 @@
+/* Section base */
+.hero-pharmaex {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    height: 550px;
+    background: url('../../../public/assests/img/citybg.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    position: absolute;
+    right: 0;
+    width: 65%;
+    z-index: 2;
+}
+
+.eyebrow {
+    margin-bottom: 6px;
+}
+
+.hero-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 8px 0 14px;
+}
+
+.hero-title span {
+    color: #73BF45;
+}
+
+/* green accent */
+
+.hero-meta p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin: 2px 0;
+}
+
+.icon {
+    font-size: 1.05em;
+}
+
+.hero-copy {
+    max-width: 720px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .85);
+    margin: 14px 0 22px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    width: 200px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+
+.btn-primary {
+    background: white;
+    color: black;
+    border: none !important;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, .9);
+    color: #fff;
+    background: transparent;
+}
+
+
+/* Decorative image bottom-left */
+.hero-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: min(50%, 520px);
+    max-height: 95%;
+    object-fit: cover;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .4));
+    opacity: .95;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+    .hero-container {
+        width: 75%;
+    }
+    .hero-pharmaex {
+        height: 500px;
+    }
+    .hero-image {
+        width: min(55%, 450px);
+    }
+}
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    .hero-pharmaex {
+        height: auto; /* let height adjust with content */
+        padding: 60px 30px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-container {
+        position: relative;
+        width: 100%;
+        right: auto;
+        order: 2;
+    }
+    .hero-image {
+        position: relative;
+        width: 70%;
+        margin: 0 auto 30px;
+        order: 1;
+    }
+    .btn {
+        width: auto;
+        padding: 10px 16px;
+        margin: 8px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(22px, 5vw, 32px);
+    }
+    .hero-meta p {
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+    .hero-copy {
+        font-size: 0.95rem;
+    }
+    .hero-image {
+        width: 80%;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-pharmaex {
+        padding: 40px 20px;
+    }
+    .hero-title {
+        font-size: 20px;
+    }
+    .hero-meta p {
+        font-size: 0.85rem;
+                margin-bottom: 10px;
+    }
+    .hero-copy {
+        font-size: 0.9rem;
+    }
+    .btn {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+    }
+    .hero-image {
+        width: 90%;
+    }
+}

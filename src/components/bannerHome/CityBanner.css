@@ -1,0 +1,112 @@
+.hyderabad-banner {
+  background: url("../../../public/assests/img/citybanner.jpg") no-repeat center
+    center/cover; /* background image */
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hyderabad-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.671); /* overlay */
+}
+
+.hyderabad-banner .overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hyderabad-banner .subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.hyderabad-banner .title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hyderabad-banner .date-location {
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 30px;
+  border: 1px solid #4caf50; /* green border */
+  margin-bottom: 20px;
+}
+
+.hyderabad-banner .description {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .hyderabad-banner {
+    height: 60vh;
+    padding: 0 20px;
+  }
+  .hyderabad-banner .title {
+    font-size: 3rem;
+  }
+  .hyderabad-banner .subtitle {
+    font-size: 1rem;
+  }
+  .hyderabad-banner .date-location {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+  .hyderabad-banner .description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .hyderabad-banner {
+    height: 50vh;
+    padding: 0 15px;
+  }
+  .hyderabad-banner .title {
+    font-size: 2.4rem;
+  }
+  .hyderabad-banner .subtitle {
+    font-size: 0.95rem;
+  }
+  .hyderabad-banner .date-location {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+  .hyderabad-banner .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .hyderabad-banner {
+    height: 40vh;
+  }
+  .hyderabad-banner .title {
+    font-size: 1.8rem;
+  }
+  .hyderabad-banner .subtitle {
+    font-size: 0.85rem;
+  }
+  .hyderabad-banner .date-location {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+  }
+  .hyderabad-banner .description {
+    font-size: 0.85rem;
+  }
+}
