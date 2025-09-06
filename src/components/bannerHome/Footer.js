@@ -137,7 +137,7 @@ const Footer = () => {
                   <h5 className="footer-title">Contact Us</h5>
                   <ul className="footer-contact-list">
                     <li><img src="/assests/img/Location1.svg" alt="Location" className="me-2" />Bhardwaj Complex, Near Mobile Tower, Behind HDFC Bank, Krishna Nagar Bulandshahr (U.P.)-203001</li>
-                    <li><img src="/assests/img/Message1.svg" alt="Mail" className="me-2" />shivam.sharma@pharmmaex.com</li>
+                    <li><img src="/assests/img/Message1.svg" alt="Mail" className="me-2" />info@pharmmaex.com</li>
                     <li><img src="/assests/img/phone1.svg" alt="Phone" className="me-2" />+91-92580 02828, +91-70173 36797</li>
                   </ul>
                 </div>
