@@ -28,9 +28,9 @@
 
 .timeline {
   display: flex;
-  flex-wrap: wrap;
+
   align-items: center;
-  gap: 1.2rem;
+  gap: 3px;
 }
 
 .timelineCircle {
