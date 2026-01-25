@@ -169,6 +169,9 @@ const Footer = () => {
                       <a href="/past-exhibitions">Past Events</a>
                     </li>
                     <li>
+                      <a href="/blogs">Blogs</a>
+                    </li>
+                    <li>
                       <a href="/contact-us">Contact Us</a>
                     </li>
                   </ul>

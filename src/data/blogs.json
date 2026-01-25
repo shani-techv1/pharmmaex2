@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "title": "The Future of Pharmaceutical Manufacturing in India",
+        "slug": "future-pharmaceutical-manufacturing-india",
+        "date": "January 20, 2026",
+        "author": "Dr. Rajesh Kumar",
+        "excerpt": "Explore how Third-Party Manufacturing and PCD Franchise models are shaping the future of the Indian pharmaceutical industry...",
+        "content": "\n      <p>The Indian pharmaceutical industry is witnessing a significant shift towards Third-Party Manufacturing and PCD Franchise models. As global demand for high-quality yet affordable medicines rises, India is positioning itself as the 'Pharmacy of the World'.</p>\n      \n      <h3>Rise of Contract Manufacturing</h3>\n      <p>More companies are opting for contract manufacturing to reduce overheads and focus on R&D and marketing. This trend is expected to grow by 15% annually over the next five years.</p>\n      \n      <h3>Technology Integration</h3>\n      <p>With the adoption of AI and IoT in manufacturing processes, efficiency and quality control have reached new heights. Smart factories are becoming the norm rather than the exception.</p>\n      \n      <h3>Regulatory Landscape</h3>\n      <p>Stricter compliance with GMP and FDA regulations ensures that Indian manufacturers meet global standards, boosting export potential.</p>\n    ",
+        "image": "/assests/img/pharmmaex-event-bombay-exhibition-centre.webp",
+        "category": "Industry Trends"
+    },
+    {
+        "id": 2,
+        "title": "Why Exhibitions are Crucial for Pharma Networking",
+        "slug": "why-exhibitions-crucial-pharma-networking",
+        "date": "January 15, 2026",
+        "author": "Priya Sharma",
+        "excerpt": "Face-to-face interactions remain irreplaceable. Discover why attending events like PharmmaEx 2026 is vital for your business growth.",
+        "content": "\n      <p>In an era of digital communication, face-to-face networking remains the cornerstone of the pharmaceutical business. Exhibitions like PharmmaEx provide a unique platform for stakeholders to connect, collaborate, and grow.</p>\n      \n      <h3>Building Trust</h3>\n      <p>Meeting potential partners in person helps build trust and credibility, which are essential for long-term business relationships in the pharma sector.</p>\n      \n      <h3>Showcasing Innovation</h3>\n      <p>Exhibitions allow companies to demonstrate their latest products and technologies to a targeted audience, generating high-quality leads.</p>\n    ",
+        "image": "/assests/img/bg-registration.webp",
+        "category": "Events"
+    },
+    {
+        "id": 3,
+        "title": "Top 5 Technologies Transforming Pharma in 2026",
+        "slug": "top-5-technologies-transforming-pharma-2026",
+        "date": "January 10, 2026",
+        "author": "Tech Desk",
+        "excerpt": "From AI-driven drug discovery to blockchain in supply chain, read about the top technologies revolutionizing the sector.",
+        "content": "\n      <p>Technology is reshaping the pharmaceutical landscape at an unprecedented pace. Here are the top 5 technologies to watch out for in 2026:</p>\n      \n      <ol>\n        <li><strong>AI in Drug Discovery:</strong> Accelerating the R&D process and reducing costs.</li>\n        <li><strong>Blockchain for Supply Chain:</strong> Ensuring transparency and preventing counterfeit drugs.</li>\n        <li><strong>3D Printing of Medicines:</strong> Enabling personalized dosage forms.</li>\n        <li><strong>Telemedicine Integration:</strong> Bridging the gap between patients and providers.</li>\n        <li><strong>Big Data Analytics:</strong> Optimizing clinical trials and marketing strategies.</li>\n      </ol>\n    ",
+        "image": "/assests/img/bg-what.svg",
+        "category": "Technology"
+    },
+    {
+        "id": 4,
+        "title": "Understanding PCD Pharma Franchise Business Model",
+        "slug": "understanding-pcd-pharma-franchise-model",
+        "date": "January 05, 2026",
+        "author": "Amit Patel",
+        "excerpt": "A comprehensive guide to understanding the Propaganda Cum Distribution (PCD) model and its benefits for entrepreneurs.",
+        "content": "\n      <p>The PCD (Propaganda Cum Distribution) Pharma Franchise model offers a lucrative opportunity for entrepreneurs to enter the pharmaceutical market with low investment.</p>\n      \n      <h3>Low Risk, High Reward</h3>\n      <p>With established brand products and marketing support, franchise partners can focus on sales and distribution, minimizing entry risks.</p>\n      \n      <h3>Monopoly Rights</h3>\n      <p>Many PCD companies offer monopoly rights for specific territories, reducing competition and ensuring steady growth.</p>\n    ",
+        "image": "/assests/img/pharmmaex-footer.svg",
+        "category": "Business"
+    }
+]
