@@ -34,7 +34,7 @@ const Header = () => {
             <span className="d-none d-md-block ms-3" style={{ fontSize: '0.85rem', lineHeight: 1.1, color: '#222' }}>
               <strong>20-21 February, 2026</strong><br />
               Codissia Trade Fair Complex Coimbatore,<br />
-               Tamil Nadu
+              Tamil Nadu
             </span>
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,6 +80,7 @@ const Header = () => {
                   <li><a className="dropdown-item" href="/review-form">Review</a></li>
                   <li><a className="dropdown-item" href="/client-review">Testimonial</a></li>
                   <li><a className="dropdown-item" href="/gallery/mumbai">Gallery</a></li>
+                  <li><a className="dropdown-item" href="/blogs">Blogs</a></li>
                 </ul>
               </li>
 
