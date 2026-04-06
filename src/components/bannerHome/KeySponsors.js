@@ -8,11 +8,11 @@ const sponsors = [
     },
     {
       label: "Industry Leaders",
-      img: "/assests/img/Industry Leader-Bioaltus-Logo.png",
+      img: "/assests/img/Sponsor Logo/Sponsor Logo/Industry-Leader.png",
     },
     {
       label: "Top Rankers",
-      img: "/assests/img/Sponsor Logo/Sponsor Logo/Industry-Leader.png",
+      img: "/assests/img/Sponsor Logo/Sponsor Logo/Top-Ranker.png",
     },
     {
       label: "Pharma Player",
