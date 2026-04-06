@@ -31,7 +31,6 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
 
 # vercel
 .vercel
@@ -56,14 +55,12 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Local env files
-.env*
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
 # VSCode settings
-.vscode/
 
 # Optional: Mac system files
 .AppleDouble
@@ -75,3 +72,4 @@ $RECYCLE.BIN/
 
 # Optional: Linux system files
 *~
+config.bat
