@@ -96,9 +96,13 @@ const LeadFormModal = ({ type, prefill, onClose }) => {
       return;
     }
     try {
+      const utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
       const list = JSON.parse(localStorage.getItem(meta.storageKey) || "[]");
-      list.push({ ...data, type, ts: new Date().toISOString() });
+      list.push({ ...data, type, ts: new Date().toISOString(), ...utm });
       localStorage.setItem(meta.storageKey, JSON.stringify(list));
+      if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", "Lead", { content_name: type });
+      }
     } catch {}
     if (meta.downloadUrl) {
       const fileName = meta.downloadUrl.split("/").pop() || "brochure.pdf";
