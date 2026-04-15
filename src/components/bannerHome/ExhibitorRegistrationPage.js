@@ -152,6 +152,11 @@ const ExhibitorRegistrationPage = () => {
         StallNo: other.stallNo,
       };
 
+      try {
+        const utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
+        Object.assign(payload, utm);
+      } catch {}
+
       formData.append("jsonData", JSON.stringify(payload));
       formData.append("file", other.logo);
 
