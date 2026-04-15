@@ -1,6 +1,5 @@
 /* ============================================================
-   Eligibility for Exhibitors — premium editorial redesign
-   4-card magazine grid (replaces the old carousel)
+   Eligibility for Exhibitors — premium slider
 ============================================================ */
 
 .section {
@@ -19,7 +18,7 @@
   background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.08), transparent);
 }
 
-/* ---------- Header row ---------- */
+/* ---------- Header ---------- */
 .headerRow {
   display: flex;
   justify-content: space-between;
@@ -45,7 +44,6 @@
   height: 6px;
   background: #00833D;
   border-radius: 50%;
-  display: inline-block;
 }
 
 .title {
@@ -64,7 +62,6 @@
 
 .subtitle {
   font-size: 1.04rem;
-  font-weight: 400;
   color: #64748b;
   line-height: 1.7;
   margin: 0;
@@ -90,16 +87,45 @@
 }
 
 /* ============================================================
-   Card grid
+   Carousel
 ============================================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
+.carousel {
+  position: relative;
+  width: 100%;
 }
 
+.scroller {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0.25rem 1.75rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 2.5%,
+    #000 97.5%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 2.5%,
+    #000 97.5%,
+    transparent 100%
+  );
+}
+.scroller::-webkit-scrollbar { display: none; }
+
+/* ---------- Card ---------- */
 .card {
   position: relative;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: clamp(260px, 23vw, 320px);
   background: #ffffff;
   border: 1px solid #eef0f3;
   border-radius: 22px;
@@ -108,29 +134,31 @@
   color: inherit;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s ease,
+              border-color 0.4s ease,
+              opacity 0.4s ease;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-}
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #00833D, #4ade80);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-  z-index: 3;
+  opacity: 0.72;
 }
 .card:hover {
+  opacity: 1;
   transform: translateY(-5px);
   border-color: rgba(0, 131, 61, 0.18);
-  box-shadow: 0 26px 50px -22px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 26px 50px -22px rgba(15, 23, 42, 0.18);
 }
-.card:hover::before {
-  transform: scaleX(1);
+.cardActive {
+  opacity: 1;
+  border-color: rgba(0, 131, 61, 0.2);
+  box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+}
+.cardActive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 131, 61, 0.25);
 }
 
 .imageWrap {
@@ -145,44 +173,55 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.02);
-  transition: transform 0.7s ease;
+  transition: transform 0.8s ease;
 }
-.card:hover .imageWrap img {
+.card:hover .imageWrap img,
+.cardActive .imageWrap img {
   transform: scale(1.08);
 }
 .imageOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(15, 23, 42, 0) 60%,
-    rgba(15, 23, 42, 0.4) 100%);
+    rgba(15, 23, 42, 0) 55%,
+    rgba(15, 23, 42, 0.45) 100%);
   pointer-events: none;
+}
+.imageTag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  color: #00833D;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-feature-settings: "tnum";
 }
 
 .body {
-  padding: 1.6rem 1.6rem 1.7rem;
+  padding: 1.4rem 1.5rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.65rem;
   flex: 1;
 }
-
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 0.8rem;
 }
-.cardNumber {
-  font-size: 1.85rem;
-  font-weight: 200;
-  letter-spacing: -0.04em;
-  color: #cbd5e1;
-  line-height: 1;
-  font-feature-settings: "tnum";
-  transition: color 0.3s;
-}
-.card:hover .cardNumber {
-  color: #00833D;
+.cardTitle {
+  font-size: 1.22rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.25;
 }
 .cardArrow {
   width: 34px;
@@ -196,24 +235,14 @@
   flex-shrink: 0;
   transition: all 0.35s ease;
 }
-.card:hover .cardArrow {
+.card:hover .cardArrow,
+.cardActive .cardArrow {
   background: #00833D;
   color: #ffffff;
   transform: rotate(-45deg);
 }
-
-.cardTitle {
-  font-size: 1.32rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: #0f172a;
-  margin: 0;
-  line-height: 1.2;
-}
-
 .cardDesc {
   font-size: 0.92rem;
-  font-weight: 400;
   color: #64748b;
   line-height: 1.6;
   margin: 0;
@@ -221,11 +250,112 @@
 }
 
 /* ============================================================
+   Controls
+============================================================ */
+.controls {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-feature-settings: "tnum";
+  color: #0f172a;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+}
+.counterCurrent {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #00833D;
+}
+.counterDivider {
+  width: 28px;
+  height: 1px;
+  background: #cbd5e1;
+  display: inline-block;
+}
+.counterTotal { color: #94a3b8; }
+
+.dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: #d6dbe0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dot:hover { background: #9aa4af; }
+.dotActive {
+  background: #00833D;
+  width: 26px;
+  border-radius: 999px;
+}
+
+.navPair {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.navBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px -10px rgba(15, 23, 42, 0.25);
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+.navBtn:hover {
+  background: #00833D;
+  color: #ffffff;
+  border-color: #00833D;
+  transform: translateY(-1px);
+}
+.navBtn:active { transform: translateY(0); }
+
+/* ---------- Autoplay progress bar ---------- */
+.progressTrack {
+  margin-top: 1rem;
+  width: 100%;
+  height: 2px;
+  background: #e5e9ef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progressBar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00833D, #4ade80);
+  animation: eeProgress linear forwards;
+}
+.progressPaused { animation-play-state: paused; }
+
+@keyframes eeProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ============================================================
    Responsive
 ============================================================ */
-@media (max-width: 1100px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-}
 @media (max-width: 992px) {
   .section { padding: 5rem 0; }
   .headerRow {
@@ -235,12 +365,26 @@
     margin-bottom: 2.4rem;
   }
 }
+@media (max-width: 720px) {
+  .controls {
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: center;
+  }
+  .counter { order: 1; }
+  .navPair { order: 2; }
+  .dots { order: 3; width: 100%; justify-content: center; }
+}
 @media (max-width: 640px) {
   .section { padding: 4rem 0 3.5rem; }
-  .grid { grid-template-columns: 1fr; gap: 1.1rem; }
   .title { font-size: 2rem; }
-  .body { padding: 1.4rem 1.5rem 1.5rem; }
-  .cardTitle { font-size: 1.22rem; }
-  .cardNumber { font-size: 1.6rem; }
-  .card { border-radius: 18px; }
+  .body { padding: 1.25rem 1.35rem 1.4rem; }
+  .cardTitle { font-size: 1.15rem; }
+  .card { border-radius: 18px; width: 78vw; }
+  .navBtn { width: 38px; height: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressBar { animation: none; }
+  .scroller { scroll-behavior: auto; }
 }

@@ -33,6 +33,10 @@ export const OrderForm = (props) => {
     if (!formData || isLoading) return;
 
     setIsLoading(true);
+    let utm = {};
+    try {
+      utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
+    } catch {}
     try {
       const orderRes = await fetch("https://apis.pharmmaex.com/create-order", {
         // const orderRes = await fetch("http://localhost:5001/create-order", {
@@ -44,6 +48,7 @@ export const OrderForm = (props) => {
           email: formData.email,
           phone: formData.phone,
           cart: cart,
+          ...utm,
         }),
       });
       const orderData = await orderRes.json();
@@ -57,6 +62,7 @@ export const OrderForm = (props) => {
             ...formData,
             totalPrices: (totalPrices * 1.18).toFixed(2),
             productTable: cart,
+            ...utm,
           }),
         });
         router.push("/thank-you");
