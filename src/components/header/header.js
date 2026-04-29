@@ -71,6 +71,10 @@ const Header = () => {
                   <li><a className="dropdown-item" href="/up-coming">Upcoming Events</a></li>
                   <li><a className="dropdown-item" href="/past-exhibitions">Past Exhibitors</a></li>
                   <li><a className="dropdown-item" href="/sponsors-association">Sponsors & Associations</a></li>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li><a className="dropdown-item" href="/districts">Pharma Events in India</a></li>
+                  
+                  
                 </ul>
               </li>
 
