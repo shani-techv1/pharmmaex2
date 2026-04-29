@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>PharmmaEx — India&apos;s Leading Pharma Franchise & Business Expo</title>
+        <title>PharmmaEx — India&apos;s Leading Pharma Franchise & Business Expo 1</title>
         <meta
           name="description"
           content="Connect with 500+ verified pharma companies at PharmmaEx — India's #1 pharma franchise & third-party manufacturing expo. Book your stall today."
