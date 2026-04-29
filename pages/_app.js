@@ -39,7 +39,9 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           name="keywords"
-          content="PharmmaEx 2026 Kolkata event, Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, pharmaceutical exhibition, Pharma networking Kolkata, Pharma technology event 2026, Kolkata pharma industry expo, Healthcare pharma business Kolkata, Pharmaceutical exhibition"
+          content="PharmmaEx 2026 Kolkata event, Biswa Bangla Exhibition Centre, New Town,
+          Upcoming pharma events in india Kolkata,
+            Pharmaceutical exhibition in Kolkata, Pharma expo West Bengal, Healthcare trade show Kolkata, Medical conference Kolkata, Pharma networking event Kolkata, Pharmaceutical industry expo Kolkata, Pharma technology event 2026, Kolkata pharma industry expo, Healthcare pharma business Kolkata, Pharmaceutical exhibition, pharmaceutical exhibition, Pharma networking Kolkata, Pharma technology event 2026, Kolkata pharma industry expo, Healthcare pharma business Kolkata, Pharmaceutical exhibition"
         />
         <meta name="author" content="PharmmaEx" />
         <meta name="publisher" content="PharmmaEx" />
@@ -108,7 +110,7 @@ export default function App({ Component, pageProps }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Event",
-              name: "PharmmaEx 2026 - Codissia Trade Fair Complex, Coimbatore, Tamil Nadu",
+              name: "PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition",
               startDate: "2026-02-20T09:00:00+05:30",
               endDate: "2026-02-21T18:00:00+05:30",
               location: {
@@ -135,6 +137,34 @@ export default function App({ Component, pageProps }) {
             }),
           }}
         />
+
+     
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition" />
+        <meta name="twitter:description" content="Join PharmmaEx 2026 at Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, for two days of pharmaceutical innovation, networking, and insights into the future of the healthcare industry." />
+        <meta name="twitter:image" content="https://pharmmaex.com/assets/img/pharmmaex-event-bombay-exhibition-centre.webp" />
+
+    
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "PharmmaEx",
+              url: "https://pharmmaex.com",
+              logo: "https://pharmmaex.com/assets/img/PharmmaEx-updated-logo.svg",
+              sameAs: [
+                "https://www.facebook.com/pharmmaex",
+                "https://www.linkedin.com/company/pharmmaex",
+                "https://www.instagram.com/pharmmaex",
+              ],
+            }),
+          }}
+        />
+
       </Head>
 
       {/* Meta Pixel */}
