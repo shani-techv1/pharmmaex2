@@ -9,14 +9,14 @@ import EventPageDetails from "@/src/components/phase1/EventPageDetails";
 import WhatsAppFloat from "@/src/components/phase1/WhatsAppFloat";
 
 const Upcoming = () => {
-  const eventName = "PharmmaEx 2026 - Coimbatore, Tamil Nadu";
+  const eventName = "PharmmaEx 2027 - Ahmedabad, Gujarat";
   const eventDescription =
-    "Join PharmmaEx 2026 on 3-4th July at Kolkata, to explore pharmaceutical innovations, cutting-edge technologies, and key networking opportunities with industry leaders.";
+    "Join PharmmaEx 2027 on 8-9th January at Ahmedabad, to explore pharmaceutical innovations, cutting-edge technologies, and key networking opportunities with industry leaders.";
   const eventImage =
-    "https://pharmmaex.com/assets/img/pharmmaex-event-bombay-exhibition-centre.webp";
+    "https://pharmmaex.com/assests/img/image2.webp";
   const eventUrl = "https://pharmmaex.com/up-coming";
-  const startDate = "2026-07-03T09:00:00+05:30";
-  const endDate = "2026-07-04T18:00:00+05:30";
+  const startDate = "2027-01-08T09:00:00+05:30";
+  const endDate = "2027-01-09T18:00:00+05:30";
 
   return (
     <>
@@ -24,7 +24,7 @@ const Upcoming = () => {
         <title>Upcoming Pharma Exhibition In India</title>
         <meta
           name="keywords"
-          content="PharmmaEx 2026, Kolkata, West Bengal pharma exhibition, Biswa Bangla Exhibition Centre event, pharmaceutical networking Kolkata, pharma technology India, healthcare business expo"
+          content="PharmmaEx 2027, Ahmedabad, Gujarat pharma exhibition, Vigyan Bhawan Science City event, pharmaceutical networking Ahmedabad, pharma technology India, healthcare business expo"
         />
         <meta name="author" content="PharmmaEx" />
         <meta name="publisher" content="PharmmaEx" />
@@ -58,13 +58,13 @@ const Upcoming = () => {
               url: "https://pharmmaex.com/up-coming",
               location: {
                 "@type": "Place",
-                name: "Biswa Bangla Exhibition Centre",
+                name: "Vigyan Bhawan, Science City",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal",
-                  addressLocality: "Kolkata",
-                  addressRegion: "West Bengal",
-                  postalCode: "700156",
+                  streetAddress: "Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat",
+                  addressLocality: "Ahmedabad",
+                  addressRegion: "Gujarat",
+                  postalCode: "380060",
                   addressCountry: "India",
                 },
               },
@@ -92,7 +92,7 @@ const Upcoming = () => {
 
       <div className={styles.imageContainer}>
         <Image
-          src="/Kolkata.webp"
+          src="/assests/img/image2.webp"
           alt="PharmmaEx Event"
           className={styles.image}
           width={1000}
@@ -135,7 +135,7 @@ const Upcoming = () => {
           <div className={styles.eventItem}>
             <span className={styles.eventIcon}>📅</span>
             <div className={styles.eventTextBox}>
-              <div className={styles.eventTitle}>3-4th July, 2026</div>
+              <div className={styles.eventTitle}>8-9th January, 2027</div>
               <div className={styles.eventSub}>(Friday,Saturday)</div>
             </div>
           </div>
@@ -144,9 +144,9 @@ const Upcoming = () => {
             <span className={styles.eventIcon}>📍</span>
             <div className={styles.eventTextBox}>
               <div className={styles.eventTitle}>
-                Biswa Bangla Exhibition Centre
+                Vigyan Bhawan, Science City
               </div>
-              <div className={styles.eventSub}>New Town, Kolkata, West Bengal</div>
+              <div className={styles.eventSub}>Sola, Ahmedabad, Gujarat</div>
             </div>
           </div>
 
@@ -171,9 +171,10 @@ const Upcoming = () => {
 
       {/* Phase 1 — full event details */}
       <EventPageDetails
-        city="Kolkata"
-        date="3-4 July, 2026"
-        venue="Biswa Bangla Exhibition Centre, New Town, Kolkata"
+        city="Ahmedabad"
+        year="2027"
+        date="8-9 January, 2027"
+        venue="Vigyan Bhawan, Science City, Ahmedabad"
       />
 
       <Footer />

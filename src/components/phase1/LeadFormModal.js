@@ -11,7 +11,7 @@ const FORM_META = {
   },
   brochure: {
     title: "Download Brochure",
-    sub: "Get the full PharmmaEx 2026 brochure — pricing, floor plans, exhibitor list and more.",
+    sub: "Get the full PharmmaEx 2027 brochure — pricing, floor plans, exhibitor list and more.",
     cta: "Download Brochure",
     fields: ["name", "company", "phone", "email"],
     storageKey: "pharmmaex_brochure",
@@ -42,7 +42,7 @@ const PLACEHOLDERS = {
   company: "ABC Pharma Pvt. Ltd.",
   phone: "+91 98765 43210",
   email: "you@company.com",
-  city: "Kolkata",
+  city: "Ahmedabad",
   stallSize: "9 sq.m / 18 sq.m / Custom",
   preferredTime: "e.g. Today 4 PM",
 };

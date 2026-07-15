@@ -189,13 +189,13 @@ const ExhibitorRegistrationPage = () => {
         <div>
           Exhibition Date & Time:{" "}
           <span className={styles.eventHighlight}>
-            July 3th–4th, 2026, 10.00 AM to 6.00 PM
+            January 8th–9th, 2027, 10.00 AM to 6.00 PM
           </span>
         </div>
         <div>
           Exhibition Venue:{" "}
           <span className={styles.eventHighlight}>
-            Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata
+            Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat
           </span>
         </div>
       </div>

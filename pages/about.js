@@ -11,9 +11,9 @@ import TeamSection from "@/src/components/bannerHome/TeamSection";
 import ExhibitionGallery from "@/src/components/bannerHome/ExhibitionGallery";
 
 export default function About() {
-  const pageTitle = "About Us - PharmmaEx 2026";
+  const pageTitle = "About Us - PharmmaEx 2027";
   const pageDescription =
-    "Learn about PharmmaEx 2026 — our mission, vision, and the people behind India's premier pharmaceutical exhibition at the Kolkata, West Bengal";
+    "Learn about PharmmaEx 2027 — our mission, vision, and the people behind India's premier pharmaceutical exhibition at the Ahmedabad, Gujarat";
   const pageUrl = "https://pharmmaex.com/about";
   const pageImage = "https://pharmmaex.com/assets/img/aboutBanner.svg";
 

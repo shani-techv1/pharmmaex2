@@ -4,7 +4,7 @@ import styles from "./bannerHome.module.css";
 import Ticker from "./Ticker";
 
 const BannerHome = () => {
-  const eventDate = new Date("2026-07-03T09:00:00.000Z");
+  const eventDate = new Date("2027-01-08T03:30:00.000Z");
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -138,7 +138,7 @@ const BannerHome = () => {
                 <line x1="8" y1="2" x2="8" y2="6" />
                 <line x1="3" y1="10" x2="21" y2="10" />
               </svg>
-              3–4 July 2026 · Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata
+              8–9 January 2027 · Vigyan Bhawan, Science City, Ahmedabad
             </div>
             <div className={styles.bannerBtnGroup}>
               <a

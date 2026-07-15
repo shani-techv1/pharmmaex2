@@ -11,15 +11,15 @@ import { CITY_LIST, UPCOMING_CITIES, PAST_CITIES } from "@/src/data/cityEvents";
 const SITE_URL = "https://pharmmaex.com";
 
 export default function EventsIndex() {
-  const pageTitle = "PharmmaEx Events 2026 — Pharma Expo Cities Across India";
+  const pageTitle = "PharmmaEx Events 2027 — Pharma Expo Cities Across India";
   const pageDescription =
-    "PharmmaEx 2026 travels across India — Kolkata, Hyderabad, Ahmedabad, Coimbatore and more. Find dates, venues, exhibitor profiles and visitor registration for every city.";
+    "PharmmaEx 2027 travels across India — Ahmedabad, Kolkata, Hyderabad, Coimbatore and more. Find dates, venues, exhibitor profiles and visitor registration for every city.";
   const pageUrl = `${SITE_URL}/events`;
 
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "PharmmaEx 2026 Editions",
+    name: "PharmmaEx 2027 Editions",
     itemListElement: CITY_LIST.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -35,7 +35,7 @@ export default function EventsIndex() {
         <meta name="description" content={pageDescription} />
         <meta
           name="keywords"
-          content="pharma expo India 2026, pharma exhibition cities, PharmmaEx editions, PCD pharma expo, pharma trade show India"
+          content="pharma expo India 2027, pharma exhibition cities, PharmmaEx editions, PCD pharma expo, pharma trade show India"
         />
         <link rel="canonical" href={pageUrl} />
         <meta property="og:title" content={pageTitle} />
@@ -60,7 +60,7 @@ export default function EventsIndex() {
               Editions Across India
             </span>
             <h1 className={styles.h1}>
-              PharmmaEx 2026 —{" "}
+              PharmmaEx 2027 —{" "}
               <span className={styles.titleAccent}>
                 coming to a city near you
               </span>
@@ -174,8 +174,8 @@ export default function EventsIndex() {
 
           <div style={{ marginTop: "3rem" }}>
             <SeoCtaBanner
-              title="Exhibit at multiple PharmmaEx editions in 2026"
-              subtitle="Lock multi-city packages and reach 50,000+ verified buyers across Kolkata, Hyderabad, Ahmedabad and Coimbatore."
+              title="Exhibit at multiple PharmmaEx editions in 2027"
+              subtitle="Lock multi-city packages and reach 50,000+ verified buyers across Ahmedabad, Kolkata, Hyderabad and Coimbatore."
               primaryLabel="Book Multi-City Stall"
               primaryHref="/exhibitor"
             />

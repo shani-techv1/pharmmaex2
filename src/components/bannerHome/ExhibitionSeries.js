@@ -55,7 +55,7 @@ const pastEvents = [
 ];
 
 const ExhibitionSeries = () => {
-  const eventDate = new Date("2026-07-03T09:00:00.000Z");
+  const eventDate = new Date("2027-01-08T03:30:00.000Z");
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -177,8 +177,8 @@ const ExhibitionSeries = () => {
           <h5 className="mb-3 exhibition-series-subtitle">Upcoming Exhibition</h5>
           <div className="d-flex flex-wrap align-items-center gap-4">
             <img
-              src="https://indiano.travel/wp-content/uploads/2022/03/Kolkata.webp"
-              alt="Biswa Bangla Mela Prangan (Milan Mela), Kolkata"
+              src="/assests/img/image2.webp"
+              alt="Vigyan Bhawan, Science City, Ahmedabad"
               className="exhibition-series-upcoming-img rounded-4"
             />
             <div className="d-flex gap-3 align-items-center exhibition-series-countdown">
@@ -202,8 +202,8 @@ const ExhibitionSeries = () => {
               </div>
             </div>
             <div className="ms-3 exhibition-series-upcoming-details">
-              <div className="fw-bold">3-4 July, 2026</div>
-              <div>Biswa Bangla Mela Prangan (Milan Mela), <br /> Opp. Science City, Kolkata</div>
+              <div className="fw-bold">8-9 January, 2027</div>
+              <div>Vigyan Bhawan, Science City, <br /> Sola, Ahmedabad, Gujarat</div>
             </div>
             <div className="d-flex gap-2 ms-3 exhibition-series-btn-group">
               <a

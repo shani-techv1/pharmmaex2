@@ -4,31 +4,31 @@ import Image from "next/image";
 import styles from "./UpcomingEvents.module.css";
 
 const FEATURED = {
-  city: "Kolkata",
-  state: "West Bengal",
-  edition: "Flagship Edition · 2026",
+  city: "Ahmedabad",
+  state: "Gujarat",
+  edition: "Flagship Edition · 2027",
   badge: "Now Open · Stalls Filling",
-  dayRange: "03 — 04",
-  monthYear: "July 2026",
-  venue: "Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City",
-  href: "/events/kolkata",
-  image: "/Kolkata.webp",
+  dayRange: "08 — 09",
+  monthYear: "January 2027",
+  venue: "Vigyan Bhawan, Science City",
+  href: "/events/ahmedabad-2027",
+  image: "/assests/img/image2.webp",
 };
 
 const SUPPORTING = [
   {
+    city: "Kolkata",
+    edition: "03 — 04 July 2026",
+    venue: "Biswa Bangla Mela Prangan (Milan Mela)",
+    tag: "Recent Edition",
+    href: "/events/kolkata",
+  },
+  {
     city: "Coimbatore",
     edition: "20 — 21 February 2026",
     venue: "Codissia Trade Fair Complex",
-    tag: "Recent Edition",
-    href: "/events/coimbatore",
-  },
-  {
-    city: "Mumbai",
-    edition: "03 — 04 October 2025",
-    venue: "Bombay Exhibition Centre, Goregaon",
     tag: "Past Edition",
-    href: "/events/mumbai",
+    href: "/events/coimbatore",
   },
 ];
 

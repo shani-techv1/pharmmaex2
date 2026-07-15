@@ -4,12 +4,78 @@
 
 export const CITY_EVENTS = {
   // ============ UPCOMING ============
+  "ahmedabad-2027": {
+    slug: "ahmedabad-2027",
+    city: "Ahmedabad",
+    state: "Gujarat",
+    edition: "Flagship Edition 2027",
+    status: "upcoming",
+    date: "8 - 9 January, 2027",
+    startDate: "2027-01-08T09:00:00+05:30",
+    endDate: "2027-01-09T18:00:00+05:30",
+    venue: "Vigyan Bhawan, Science City",
+    address: "Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat 380060",
+    locality: "Sola",
+    postalCode: "380060",
+    heroImage: "/assests/img/image2.webp",
+    bannerImage: "/assests/img/sponserbanner.png",
+    galleryHref: "/gallery/ahmedabad",
+    expectedExhibitors: "300+",
+    expectedVisitors: "15,000+",
+    headline:
+      "PharmmaEx Ahmedabad 2027 — West India's Largest Pharma Franchise & Manufacturing Expo",
+    intro:
+      "PharmmaEx opens 2027 in Gujarat with its flagship edition at Vigyan Bhawan, Science City, Ahmedabad. Two days of direct franchise deals, third-party manufacturing tie-ups and on-spot order booking with 300+ verified pharma brands.",
+    keywords: [
+      "pharma expo Ahmedabad",
+      "PCD pharma franchise Ahmedabad",
+      "pharma exhibition Gujarat",
+      "pharma trade show Ahmedabad 2027",
+      "Vigyan Bhawan Science City pharma event",
+      "pharma franchise expo West India",
+    ],
+    highlights: [
+      "300+ verified PCD pharma franchise & manufacturing brands",
+      "15,000+ doctors, distributors, chemists & franchise buyers",
+      "On-spot deal closures with monopoly franchise opportunities",
+      "Live product launches and CME-style knowledge sessions",
+      "Lead reports delivered to every exhibitor within 7 days",
+    ],
+    whyAttend: [
+      {
+        title: "Discover 300+ Brands",
+        body: "Compare allopathic, ayurvedic, cosmetic and herbal franchise opportunities side-by-side.",
+      },
+      {
+        title: "Negotiate Monopoly Rights",
+        body: "Meet decision-makers and lock in district or state-wise PCD franchise rights on the spot.",
+      },
+      {
+        title: "Sample Third-Party Manufacturing",
+        body: "Audit GMP-certified contract manufacturers and request product samples directly.",
+      },
+      {
+        title: "Free Visitor Entry",
+        body: "Pre-register online to skip the queue. 100% complimentary access with verified buyer badge.",
+      },
+    ],
+    audience: [
+      "Doctors, clinicians and hospital purchase managers",
+      "Retail and wholesale chemists",
+      "Distributors and stockists looking for monopoly products",
+      "Aspiring PCD pharma franchise entrepreneurs (Tier 1-3 cities)",
+      "Hospital procurement teams and group purchase officers",
+      "Investors entering the pharma manufacturing & distribution space",
+    ],
+  },
+
+  // ============ PAST EDITIONS (real data) ============
   kolkata: {
     slug: "kolkata",
     city: "Kolkata",
     state: "West Bengal",
     edition: "Flagship Edition 2026",
-    status: "upcoming",
+    status: "past",
     date: "3 - 4 July, 2026",
     startDate: "2026-07-03T09:00:00+05:30",
     endDate: "2026-07-04T18:00:00+05:30",
@@ -26,7 +92,7 @@ export const CITY_EVENTS = {
     headline:
       "PharmmaEx Kolkata 2026 — East India's Largest Pharma Franchise & Manufacturing Expo",
     intro:
-      "PharmmaEx returns to East India with its 2026 flagship edition at the Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata. Two days of direct franchise deals, third-party manufacturing tie-ups and on-spot order booking with 300+ verified pharma brands.",
+      "Held on 3–4 July 2026 at the Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata, the PharmmaEx flagship edition brought 300+ verified pharma brands face-to-face with franchise buyers, distributors and hospital purchase teams from across eastern India.",
     keywords: [
       "pharma expo Kolkata",
       "PCD pharma franchise Kolkata",
@@ -70,7 +136,6 @@ export const CITY_EVENTS = {
     ],
   },
 
-  // ============ PAST EDITIONS (real data) ============
   coimbatore: {
     slug: "coimbatore",
     city: "Coimbatore",

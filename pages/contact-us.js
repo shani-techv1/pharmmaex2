@@ -20,7 +20,7 @@ export default function About() {
         <meta name="description" content={pageDescription} />
         <meta
           name="keywords"
-          content="PharmmaEx contact, exhibition queries, pharma exhibition Kolkata, West Bengal, pharma networking India, contact pharma expo"
+          content="PharmmaEx contact, exhibition queries, pharma exhibition Ahmedabad, Gujarat, pharma networking India, contact pharma expo"
         />
         <meta name="author" content="PharmmaEx" />
         <meta name="publisher" content="PharmmaEx" />
@@ -58,10 +58,10 @@ export default function About() {
               email: "info@pharmmaex.com", // Replace with actual contact email
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal",
-                addressLocality: "Kolkata",
-                addressRegion: "West Bengal",
-                postalCode: "700156",
+                streetAddress: "Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat",
+                addressLocality: "Ahmedabad",
+                addressRegion: "Gujarat",
+                postalCode: "380060",
                 addressCountry: "India",
               },
               openingHours: "Mo-Fr 09:00-18:00",

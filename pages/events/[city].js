@@ -29,7 +29,9 @@ export default function CityEventLanding({ event }) {
   const eventSchema = {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: `PharmmaEx ${event.city} ${event.status === "upcoming" ? "2026" : ""}`.trim(),
+    name: `PharmmaEx ${event.city} ${
+      event.status === "upcoming" ? new Date(event.startDate).getFullYear() : ""
+    }`.trim(),
     description: event.intro,
     image: [pageImage],
     startDate: event.startDate,

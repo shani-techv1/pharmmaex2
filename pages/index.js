@@ -5,11 +5,8 @@ import BannerHome from "@/src/components/bannerHome/bannerHome";
 import EligibilityExhibitors from "@/src/components/bannerHome/EligibilityExhibitors";
 import KeySponsors from "@/src/components/bannerHome/KeySponsors";
 import Footer from "@/src/components/bannerHome/Footer";
-import dynamic from "next/dynamic";
 import FloatingDownloads from "@/src/components/FloatingDownloads";
 import HomeSections from "@/src/components/phase1/HomeSections";
-
-const RegisterDialog = dynamic(() => import("@/src/components/RegisterDialog"), { ssr: false });
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -26,7 +23,6 @@ export default function Home() {
       </Head>
 
       <Header />
-      <RegisterDialog />
 
       {/* 1. Hero */}
       <BannerHome />
