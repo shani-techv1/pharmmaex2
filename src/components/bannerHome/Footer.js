@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Footer = () => {
-  const eventDate = new Date("2026-07-03T09:00:00.000Z");
+  const eventDate = new Date("2027-01-08T03:30:00.000Z");
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -34,7 +34,7 @@ const Footer = () => {
     <footer className="footer-section">
       <div className="footer-bg">
         <img
-          src="/assests/img/bg-registration.png"
+          src="/assests/img/bg-registration-1.png"
           alt="Footer Background"
           className="footer-bg-img"
         />
@@ -43,13 +43,13 @@ const Footer = () => {
       <div className="container footer-content">
         <div className="footer-registration-box">
           <h2 className="footer-registration-title">
-            Registration for Kolkata
+            Registration for Ahmedabad
           </h2>
           <div className="footer-registration-details d-flex align-items-center mb-3">
             <div className="footer-registration-date-icon me-2">
               <img src="/assests/img/Calendar.svg" alt="Calendar" />
               <div className="footer-registration-date">
-                3-4 July, 2026
+                8-9 January, 2027
               </div>
             </div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
                 alt="Location"
                 className="me-1"
               />
-              Biswa Bangla Mela Prangan (Milan Mela), <br /> Opp. Science City, Kolkata
+              Vigyan Bhawan, Science City, <br /> Sola, Ahmedabad, Gujarat
             </div>
           </div>
           <div className="footer-registration-btns d-flex gap-3">
@@ -111,9 +111,9 @@ const Footer = () => {
                         </div>
                       </div>
                       <div className="footer-event-info">
-                        <div className="fw-bold">3-4 July, 2026</div>
+                        <div className="fw-bold">8-9 January, 2027</div>
                         <div>
-                          Biswa Bangla Mela Prangan (Milan Mela), <br /> Opp. Science City, Kolkata
+                          Vigyan Bhawan, Science City, <br /> Sola, Ahmedabad, Gujarat
                         </div>
                       </div>
                     </div>
@@ -153,6 +153,9 @@ const Footer = () => {
                   <ul className="footer-links">
                     <li>
                       <a href="/events">All Editions</a>
+                    </li>
+                    <li>
+                      <a href="/events/ahmedabad-2027">Ahmedabad 2027</a>
                     </li>
                     <li>
                       <a href="/events/kolkata">Kolkata 2026</a>

@@ -7,9 +7,9 @@ import ExhibitionGallery from "@/src/components/bannerHome/ExhibitionGallery";
 import ExhibitorRegistrationPage from "@/src/components/bannerHome/ExhibitorRegistrationPage";
 
 const Exhibitor = () => {
-  const pageTitle = "Exhibitor Registration | PharmmaEx 2026";
+  const pageTitle = "Exhibitor Registration | PharmmaEx 2027";
   const pageDescription =
-    "Register as an exhibitor for PharmmaEx 2026 at Kolkata, West Bengal. Showcase your products and services to top pharmaceutical industry professionals.";
+    "Register as an exhibitor for PharmmaEx 2027 at Ahmedabad, Gujarat. Showcase your products and services to top pharmaceutical industry professionals.";
   const pageUrl = "https://pharmmaex.com/exhibitor-registration";
   const pageImage = "https://pharmmaex.com/assets/img/exhibitor-banner.jpg"; // Replace with actual image URL
   return (
@@ -19,7 +19,7 @@ const Exhibitor = () => {
         <meta name="description" content={pageDescription} />
         <meta
           name="keywords"
-          content="pharma exhibition exhibitor registration, Kolkata pharma expo, exhibit pharma products, pharmaceutical trade show India"
+          content="pharma exhibition exhibitor registration, Ahmedabad pharma expo, exhibit pharma products, pharmaceutical trade show India"
         />
         <meta name="author" content="PharmmaEx" />
         <meta name="publisher" content="PharmmaEx" />
@@ -49,21 +49,21 @@ const Exhibitor = () => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Event",
-              name: "PharmmaEx 2026",
-              startDate: "2026-10-03T09:00:00+05:30",
-              endDate: "2026-10-04T18:00:00+05:30",
+              name: "PharmmaEx 2027",
+              startDate: "2027-01-08T09:00:00+05:30",
+              endDate: "2027-01-09T18:00:00+05:30",
               eventStatus: "https://schema.org/EventScheduled",
               eventAttendanceMode:
                 "https://schema.org/OfflineEventAttendanceMode",
               location: {
                 "@type": "Place",
-                name: "Biswa Bangla Exhibition Centre",
+                name: "Vigyan Bhawan, Science City",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal",
-                  addressLocality: "Kolkata",
-                  addressRegion: "West Bengal",
-                  postalCode: "700156",
+                  streetAddress: "Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat",
+                  addressLocality: "Ahmedabad",
+                  addressRegion: "Gujarat",
+                  postalCode: "380060",
                   addressCountry: "India",
                 },
               },

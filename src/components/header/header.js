@@ -32,8 +32,8 @@ const Header = () => {
             <Image src="/assests/img/logo.svg" alt="Logo" className="websiteLogo" width={60}
               height={60} />
             <span className="d-none d-md-block ms-3" style={{ fontSize: '0.85rem', lineHeight: 1.1, color: '#222' }}>
-              <strong>3rd-4th July, 2026</strong><br />
-              Kolkata, West Bengal
+              <strong>8th-9th January, 2027</strong><br />
+              Ahmedabad, Gujarat
             </span>
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +59,9 @@ const Header = () => {
                 <a className="nav-link dropdown-toggle" href="/events" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Events</a>
                 <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
                   <li><a className="dropdown-item" href="/events">All Editions</a></li>
-                  <li><a className="dropdown-item" href="/events/kolkata">Kolkata 2026 (Flagship)</a></li>
+                  <li><a className="dropdown-item" href="/events/ahmedabad-2027">Ahmedabad 2027 (Flagship)</a></li>
                   <li><hr className="dropdown-divider" /></li>
+                  <li><a className="dropdown-item" href="/events/kolkata">Kolkata 2026</a></li>
                   <li><a className="dropdown-item" href="/events/coimbatore">Coimbatore 2026</a></li>
                   <li><a className="dropdown-item" href="/events/mumbai">Mumbai 2025</a></li>
                   <li><a className="dropdown-item" href="/events/hyderabad">Hyderabad 2025</a></li>

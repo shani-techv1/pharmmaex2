@@ -29,19 +29,19 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>{`PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition`}</title>
+        <title>{`PharmmaEx 2027 - Ahmedabad, Gujarat, pharmaceutical exhibition`}</title>
         <link rel="icon" type="image/x-icon" href="/assests/img/favicon.ico" />
 
         {/* Meta Tags */}
         <meta
           name="description"
-          content="Join PharmmaEx 2026 on 3-4 July at Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, to explore pharmaceutical innovations, cutting-edge technologies, and key networking opportunities with industry leaders"
+          content="Join PharmmaEx 2027 on 8-9 January at Vigyan Bhawan, Science City, Ahmedabad, Gujarat, to explore pharmaceutical innovations, cutting-edge technologies, and key networking opportunities with industry leaders"
         />
         <meta
           name="keywords"
-          content="PharmmaEx 2026 Kolkata event, Biswa Bangla Exhibition Centre, New Town,
-          Upcoming pharma events in india Kolkata,
-            Pharmaceutical exhibition in Kolkata, Pharma expo West Bengal, Healthcare trade show Kolkata, Medical conference Kolkata, Pharma networking event Kolkata, Pharmaceutical industry expo Kolkata, Pharma technology event 2026, Kolkata pharma industry expo, Healthcare pharma business Kolkata, Pharmaceutical exhibition, pharmaceutical exhibition, Pharma networking Kolkata, Pharma technology event 2026, Kolkata pharma industry expo, Healthcare pharma business Kolkata, Pharmaceutical exhibition"
+          content="PharmmaEx 2027 Ahmedabad event, Vigyan Bhawan Science City,
+          Upcoming pharma events in india Ahmedabad,
+            Pharmaceutical exhibition in Ahmedabad, Pharma expo Gujarat, Healthcare trade show Ahmedabad, Medical conference Ahmedabad, Pharma networking event Ahmedabad, Pharmaceutical industry expo Ahmedabad, Pharma technology event 2027, Ahmedabad pharma industry expo, Healthcare pharma business Ahmedabad, Pharmaceutical exhibition, pharmaceutical exhibition, Pharma networking Ahmedabad, Pharma technology event 2027, Ahmedabad pharma industry expo, Healthcare pharma business Ahmedabad, Pharmaceutical exhibition"
         />
         <meta name="author" content="PharmmaEx" />
         <meta name="publisher" content="PharmmaEx" />
@@ -53,12 +53,12 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           property="og:title"
-          content="PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition"
+          content="PharmmaEx 2027 - Ahmedabad, Gujarat, pharmaceutical exhibition"
         />
         <meta property="og:url" content="https://pharmmaex.com/" />
         <meta
           property="og:description"
-          content="Join PharmmaEx 2026 at Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, and experience the future of pharmaceuticals through innovation, networking, and emerging healthcare technologies."
+          content="Join PharmmaEx 2027 at Vigyan Bhawan, Science City, Ahmedabad, Gujarat, and experience the future of pharmaceuticals through innovation, networking, and emerging healthcare technologies."
         />
         <meta property="og:image:height" content={300} />
         <meta property="og:image:width" content={300} />
@@ -110,23 +110,23 @@ export default function App({ Component, pageProps }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Event",
-              name: "PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition",
-              startDate: "2026-02-20T09:00:00+05:30",
-              endDate: "2026-02-21T18:00:00+05:30",
+              name: "PharmmaEx 2027 - Ahmedabad, Gujarat, pharmaceutical exhibition",
+              startDate: "2027-01-08T09:00:00+05:30",
+              endDate: "2027-01-09T18:00:00+05:30",
               location: {
                 "@type": "Place",
-                name: "Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal",
+                name: "Vigyan Bhawan, Science City, Ahmedabad, Gujarat",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal",
-                  addressLocality: "Kolkata",
-                  addressRegion: "West Bengal",
-                  postalCode: "700156",
+                  streetAddress: "Vigyan Bhawan, Science City, Sola, Ahmedabad, Gujarat",
+                  addressLocality: "Ahmedabad",
+                  addressRegion: "Gujarat",
+                  postalCode: "380060",
                   addressCountry: "India",
                 },
               },
               description:
-                "Join PharmmaEx 2026 at Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, for two days of pharmaceutical innovation, networking, and insights into the future of the healthcare industry.",
+                "Join PharmmaEx 2027 at Vigyan Bhawan, Science City, Ahmedabad, Gujarat, for two days of pharmaceutical innovation, networking, and insights into the future of the healthcare industry.",
               image:
                 "https://pharmmaex.com/assets/img/pharmmaex-event-bombay-exhibition-centre.webp",
               organizer: {
@@ -140,8 +140,8 @@ export default function App({ Component, pageProps }) {
 
      
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="PharmmaEx 2026 - Kolkata, West Bengal, pharmaceutical exhibition" />
-        <meta name="twitter:description" content="Join PharmmaEx 2026 at Biswa Bangla Exhibition Centre, New Town, Kolkata, West Bengal, for two days of pharmaceutical innovation, networking, and insights into the future of the healthcare industry." />
+        <meta name="twitter:title" content="PharmmaEx 2027 - Ahmedabad, Gujarat, pharmaceutical exhibition" />
+        <meta name="twitter:description" content="Join PharmmaEx 2027 at Vigyan Bhawan, Science City, Ahmedabad, Gujarat, for two days of pharmaceutical innovation, networking, and insights into the future of the healthcare industry." />
         <meta name="twitter:image" content="https://pharmmaex.com/assets/img/pharmmaex-event-bombay-exhibition-centre.webp" />
 
     

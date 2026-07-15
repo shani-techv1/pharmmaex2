@@ -17,7 +17,7 @@ const StickyCTA = ({ onBookStall, onCallback }) => {
       <div className={styles.stickyInner}>
         <div className={styles.stickyText}>
           <strong className={styles.stickyVenue}>
-            Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata
+            Vigyan Bhawan, Science City, Ahmedabad, Gujarat
           </strong>
           <span className={styles.stickyDot}> • </span>
           <span className={styles.stickyEntry}>Visitor Entry Free</span>

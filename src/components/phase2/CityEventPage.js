@@ -19,6 +19,7 @@ const CityEventPage = ({ event }) => {
   if (!event) return null;
 
   const isUpcoming = event.status === "upcoming";
+  const eventYear = new Date(event.startDate).getFullYear();
   const otherUpcoming = CITY_LIST.filter(
     (c) => c.slug !== event.slug && c.status === "upcoming"
   );
@@ -36,7 +37,7 @@ const CityEventPage = ({ event }) => {
             items={[
               { label: "Home", href: "/" },
               { label: "Events", href: "/events" },
-              { label: `${event.city} ${isUpcoming ? "2026" : ""}`.trim() },
+              { label: `${event.city} ${isUpcoming ? eventYear : ""}`.trim() },
             ]}
           />
 
@@ -354,7 +355,7 @@ const CityEventPage = ({ event }) => {
         <div className={styles.container}>
           <SeoCtaBanner
             title={`Be part of PharmmaEx ${event.city} ${
-              isUpcoming ? "2026" : ""
+              isUpcoming ? eventYear : ""
             }`.trim()}
             subtitle={
               isUpcoming

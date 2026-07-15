@@ -16,9 +16,9 @@ const ContactUs = () => {
           <p className='contact-el'><span className="iconSpan"><Image src="/assests/img/whiteiconct.svg" alt="Phone Icon" width={20} height={20} class='img' /></span>+91-9258002828 &nbsp; +91-701 733 6797</p>
         </div>
         <div className="venue-details">
-          <h3>Exhibition Venue-West Bengal</h3>
-          <p>Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata</p>
-          <p>3-4th July, 2026</p>
+          <h3>Exhibition Venue-Gujarat</h3>
+          <p>Vigyan Bhawan, Science City, Ahmedabad, Gujarat</p>
+          <p>8-9th January, 2027</p>
         </div>
         <div className="contact-btns">
           <a href="https://www.pharmmaexregistration.in/Pharmaex/visitor.aspx" className="btn btn-outline-success">Pre-Registration</a>

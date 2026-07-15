@@ -164,7 +164,7 @@ const ContactForm = ({ onSubmit }) => {
   );
 };
 
-const EventPageDetails = ({ city = "Kolkata", date = "3-4 July, 2026", venue = "Biswa Bangla Mela Prangan (Milan Mela), Opp. Science City, Kolkata" }) => {
+const EventPageDetails = ({ city = "Ahmedabad", year = "2027", date = "8-9 January, 2027", venue = "Vigyan Bhawan, Science City, Ahmedabad" }) => {
   const [modal, setModal] = useState(null);
   const open = (type) => setModal({ type });
   const close = () => setModal(null);
@@ -176,7 +176,7 @@ const EventPageDetails = ({ city = "Kolkata", date = "3-4 July, 2026", venue = "
         <div className="container">
           <div className={styles.headerCenter}>
             <span className={styles.eyebrow}>Event Overview</span>
-            <h2 className={styles.sectionTitle}>PharmmaEx {city} 2026</h2>
+            <h2 className={styles.sectionTitle}>PharmmaEx {city} {year}</h2>
             <p className={styles.sectionSub}>
               India&apos;s largest dedicated pharma franchise & manufacturing expo returns to {city} on {date}.
               Two power-packed days at {venue} bringing together 500+ brands and 12,000+ qualified pharma buyers.
