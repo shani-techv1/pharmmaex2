@@ -6,6 +6,14 @@ import InnerPageBanner from "@/src/components/bannerHome/InnerPageBanner";
 import React from "react";
 import styles from "@/styles/ReviewForm.module.css";
 import { useState } from "react";
+import { focusFirstError, validateForm } from "@/src/shared/validation";
+
+const REVIEW_SCHEMA = {
+  fullName: { label: "Full name", required: true, type: "name", minLength: 2, maxLength: 60 },
+  profession: { label: "Profession", required: true, minLength: 2, maxLength: 60 },
+  rating: { label: "Rating", required: true, type: "number", integer: true, min: 1, max: 5 },
+  message: { label: "Message", required: true, minLength: 10, maxLength: 1000 },
+};
 
 const ReviewForm = () => {
   const [form, setForm] = useState({
@@ -15,19 +23,44 @@ const ReviewForm = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    if (errors[name]) setErrors({ ...errors, [name]: undefined });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = validateForm(form, REVIEW_SCHEMA);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      setSubmitted(false);
+      focusFirstError(e.currentTarget, validationErrors);
+      return;
+    }
     // You can POST this data to an API here
     console.log("Submitted Review:", form);
     setSubmitted(true);
   };
+
+  const fieldProps = (name) => ({
+    name,
+    id: `review-${name}`,
+    className: errors[name] ? styles.inputError : undefined,
+    "aria-invalid": Boolean(errors[name]),
+    "aria-describedby": errors[name] ? `review-${name}-error` : undefined,
+    onChange: handleChange,
+  });
+
+  const renderError = (name) =>
+    errors[name] && (
+      <span id={`review-${name}-error`} className={styles.errorText}>
+        {errors[name]}
+      </span>
+    );
 
   return (
     <>
@@ -46,43 +79,46 @@ const ReviewForm = () => {
       />
       <div className={styles.formContainer}>
         <h2 className={styles.heading}>Review Form</h2>
-        <form onSubmit={handleSubmit}>
-          <label>Full Name*</label>
+        <form onSubmit={handleSubmit} noValidate>
+          <label htmlFor="review-fullName">Full Name*</label>
           <input
             type="text"
-            name="fullName"
             placeholder="Enter your full name"
             required
-            onChange={handleChange}
+            maxLength={60}
+            {...fieldProps("fullName")}
           />
+          {renderError("fullName")}
 
-          <label>Profession*</label>
+          <label htmlFor="review-profession">Profession*</label>
           <input
             type="text"
-            name="profession"
             placeholder="Enter your profession"
             required
-            onChange={handleChange}
+            maxLength={60}
+            {...fieldProps("profession")}
           />
+          {renderError("profession")}
 
-          <label>Rating (1–5)*</label>
+          <label htmlFor="review-rating">Rating (1–5)*</label>
           <input
             type="number"
-            name="rating"
             min="1"
             max="5"
             required
-            onChange={handleChange}
+            {...fieldProps("rating")}
           />
+          {renderError("rating")}
 
-          <label>Message*</label>
+          <label htmlFor="review-message">Message*</label>
           <textarea
-            name="message"
             placeholder="Write your review here..."
             rows="4"
             required
-            onChange={handleChange}
+            maxLength={1000}
+            {...fieldProps("message")}
           ></textarea>
+          {renderError("message")}
 
           <button type="submit">Submit</button>
           {submitted && (
