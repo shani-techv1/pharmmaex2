@@ -1,25 +1,52 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./ExhibitorRegistrationPage.module.css";
 import Image from "next/image";
 import aboutBanner from "../../../public/assests/img/aboutBanner.svg";
 import { useRouter } from "next/router";
+import {
+  focusFirstError,
+  getSubmitErrorMessage,
+  validateFile,
+  validateForm,
+} from "@/src/shared/validation";
 
 // Config array for form fields
 const formFields = [
-  { name: "contactPerson", label: "Contact Person", type: "text", col: 6 },
-  { name: "designation", label: "Designation", type: "text", col: 6 },
-  { name: "company", label: "Company", type: "text", col: 6 },
-  { name: "phone", label: "Phone Number", type: "text", col: 6 },
-  { name: "email", label: "Email ID", type: "email", col: 6 },
-  { name: "address", label: "Company Address", type: "text", col: 6 },
-  { name: "city", label: "City", type: "text", col: 6 },
-  { name: "state", label: "State", type: "text", col: 6 },
-  { name: "pincode", label: "Pincode", type: "text", col: 6 },
-  { name: "website", label: "Enter website URL", type: "url", col: 6 },
-  { name: "gst", label: "GST No.", type: "text", col: 6 },
-  { name: "tax", label: "Additional Tax (if applicable)", type: "text", col: 6 },
-  { name: "stallFascia", label: "Stall Fascia Name (In Capital Letters)", type: "text", col: 12 },
+  { name: "contactPerson", label: "Contact Person", type: "text", col: 6, rules: { required: true, type: "name", minLength: 2, maxLength: 60 } },
+  { name: "designation", label: "Designation", type: "text", col: 6, rules: { required: true, minLength: 2, maxLength: 60 } },
+  { name: "company", label: "Company", type: "text", col: 6, rules: { label: "Company name", required: true, minLength: 2, maxLength: 100 } },
+  { name: "phone", label: "Phone Number", type: "text", col: 6, inputMode: "numeric", maxLength: 10, rules: { required: true, type: "phone" } },
+  { name: "email", label: "Email ID", type: "email", col: 6, rules: { required: true, type: "email", maxLength: 100 } },
+  { name: "address", label: "Company Address", type: "text", col: 6, rules: { required: true, minLength: 5, maxLength: 200 } },
+  { name: "city", label: "City", type: "text", col: 6, rules: { required: true, minLength: 2, maxLength: 50 } },
+  { name: "state", label: "State", type: "text", col: 6, rules: { required: true, minLength: 2, maxLength: 50 } },
+  { name: "pincode", label: "Pincode", type: "text", col: 6, inputMode: "numeric", maxLength: 6, rules: { required: true, type: "pincode" } },
+  { name: "website", label: "Enter website URL", type: "url", col: 6, rules: { label: "Website URL", type: "url" } },
+  { name: "gst", label: "GST No.", type: "text", col: 6, maxLength: 15, uppercase: true, rules: { label: "GST number", required: true, type: "gst" } },
+  { name: "tax", label: "Additional Tax (if applicable)", type: "text", col: 6, rules: { label: "Additional tax", maxLength: 50 } },
+  { name: "stallFascia", label: "Stall Fascia Name (In Capital Letters)", type: "text", col: 12, uppercase: true, rules: { label: "Stall fascia name", required: true, minLength: 2, maxLength: 60 } },
 ];
+
+const FIELD_SCHEMA = {
+  ...formFields.reduce((acc, field) => {
+    acc[field.name] = { label: field.label, ...field.rules };
+    return acc;
+  }, {}),
+  width: { label: "Width", required: true, type: "number", min: 1 },
+  length: { label: "Length", required: true, type: "number", min: 1 },
+  stallNo: { label: "Stall number", maxLength: 20 },
+  charges: { label: "Charges", required: true, type: "number", min: 1 },
+};
+
+const SPACE_TYPES = ["Bare Space", "Shell Space"];
+const PAYMENT_MODES = ["NEFT", "RTGS", "UPI", "Cheque"];
+
+const LOGO_RULES = {
+  label: "your business logo for the stall fascia",
+  required: true,
+  extensions: ["ai", "png", "pdf", "svg", "jpeg", "jpg", "cdr"],
+  maxSizeMB: 5,
+};
 
 const initialState = formFields.reduce((acc, field) => {
   acc[field.name] = "";
@@ -39,11 +66,20 @@ const initialOtherState = {
   agreeTerms: false,
 };
 
+const FieldError = ({ name, message }) =>
+  message ? (
+    <div id={`${name}-error`} className={styles.errorText}>
+      {message}
+    </div>
+  ) : null;
+
 const ExhibitorRegistrationPage = () => {
   const [form, setForm] = useState(initialState);
   const [other, setOther] = useState(initialOtherState);
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
   const router = useRouter();
 
   // Dynamic area calculation
@@ -59,125 +95,127 @@ const ExhibitorRegistrationPage = () => {
     setOther((prev) => ({ ...prev, grandTotal }));
   }, [area, other.charges]);
 
+  const hasFieldErrors = Object.values(errors).some(Boolean);
+
+  const clearError = (name) => {
+    setErrors((prev) => (prev[name] ? { ...prev, [name]: undefined } : prev));
+  };
+
+  const errorProps = (name) => ({
+    "aria-invalid": Boolean(errors[name]),
+    "aria-describedby": errors[name] ? `${name}-error` : undefined,
+  });
+
+  const inputClass = (name, base = styles.input) => (errors[name] ? `${base} ${styles.inputError}` : base);
+
   // Handle input changes
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, checked, files } = e.target;
     if (name in form) {
-      setForm((prev) => ({ ...prev, [name]: value }));
+      const field = formFields.find((f) => f.name === name);
+      setForm((prev) => ({ ...prev, [name]: field?.uppercase ? value.toUpperCase() : value }));
     } else if (name === "agreeComms" || name === "agreeTerms") {
       setOther((prev) => ({ ...prev, [name]: checked }));
     } else if (name === "logo") {
-      setOther((prev) => ({ ...prev, logo: e.target.files[0] }));
+      const file = files?.[0] || null;
+      setOther((prev) => ({ ...prev, logo: file }));
+      // Check type/size as soon as a file is chosen, instead of waiting for submit
+      setErrors((prev) => ({ ...prev, logo: validateFile(file, LOGO_RULES) || undefined }));
+      return;
     } else {
       setOther((prev) => ({ ...prev, [name]: value }));
     }
+    clearError(name);
   };
 
   // Handle radio button changes
   const handleRadio = (e) => {
     const { name, value } = e.target;
     setOther((prev) => ({ ...prev, [name]: value }));
+    clearError(name);
   };
 
-  // Form validation (updated requirements)
+  // Form validation
   const validate = () => {
-    const newErrors = {};
-    formFields.forEach((field) => {
-      // Make website and tax optional
-      if (field.name !== "website" && field.name !== "tax" && !form[field.name]) newErrors[field.name] = `${field.label} is required`;
-      // Phone number must be exactly 10 digits
-      if (field.name === "phone" && form.phone && form.phone.length !== 10) {
-        newErrors.phone = "Phone Number must be exactly 10 digits.";
-      }
-      // Phone number must be numeric
-      if (field.name === "phone" && form.phone && /[^0-9]/.test(form.phone)) {
-        newErrors.phone = "Phone Number must contain only numbers.";
-      }
-      // Email validation
-      if (field.name === "email" && form.email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(form.email)) {
-          newErrors.email = "Please enter a valid email address.";
-        }
-      }
-    });
-    // Bare Space or Shell Space must be selected
-    if (!other.spaceType || (other.spaceType !== "Bare Space" && other.spaceType !== "Shell Space")) {
+    const newErrors = validateForm({ ...form, ...other }, FIELD_SCHEMA);
+    if (!SPACE_TYPES.includes(other.spaceType)) {
       newErrors.spaceType = "Please select either Bare Space or Shell Space.";
     }
-    // Grand Total must be present and > 0
-    if (!grandTotal || Number(grandTotal) <= 0) {
-      newErrors.grandTotal = "Grand Total must be calculated and greater than 0.";
-    }
-    // Payment Mode required
-    if (!other.paymentMode) {
+    if (!PAYMENT_MODES.includes(other.paymentMode)) {
       newErrors.paymentMode = "Please select a payment mode.";
     }
-    // Logo upload required
-    if (!other.logo) {
-      newErrors.logo = "Please upload your business logo for FASCIA name.";
-    }
-    if (!other.agreeTerms) newErrors.agreeTerms = "You must accept the terms and conditions.";
+    const logoError = validateFile(other.logo, LOGO_RULES);
+    if (logoError) newErrors.logo = logoError;
+    if (!other.agreeTerms) newErrors.agreeTerms = "Please accept the terms and conditions to continue.";
     return newErrors;
   };
 
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     const validationErrors = validate();
     setErrors(validationErrors);
     setSubmitError("");
 
-    if (Object.keys(validationErrors).length === 0) {
-      const formData = new FormData();
-      const payload = {
-        firstName: form.contactPerson,
-        email: form.email,
-        phone: form.phone,
-        jobTitle: form.designation,
-        company: form.company,
-        companyAdd: form.address,
-        city: form.city,
-        state: form.state,
-        pin: form.pincode,
-        website: form.website,
-        gst: form.gst,
-        tax: form.tax,
-        Fascia: form.stallFascia,
-        selectedPaymentMode: other.paymentMode,
-        space: other.spaceType,
-        Sqrm: area,
-        Charges: other.charges,
-        totalCharge: grandTotal,
-        StallNo: other.stallNo,
-      };
+    if (Object.keys(validationErrors).length > 0) {
+      focusFirstError(formRef.current, validationErrors);
+      return;
+    }
 
-      try {
-        const utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
-        Object.assign(payload, utm);
-      } catch {}
+    const values = Object.fromEntries(Object.entries(form).map(([key, value]) => [key, value.trim()]));
+    const formData = new FormData();
+    const payload = {
+      firstName: values.contactPerson,
+      email: values.email,
+      phone: values.phone,
+      jobTitle: values.designation,
+      company: values.company,
+      companyAdd: values.address,
+      city: values.city,
+      state: values.state,
+      pin: values.pincode,
+      website: values.website,
+      gst: values.gst,
+      tax: values.tax,
+      Fascia: values.stallFascia,
+      selectedPaymentMode: other.paymentMode,
+      space: other.spaceType,
+      Sqrm: area,
+      Charges: other.charges,
+      totalCharge: grandTotal,
+      StallNo: other.stallNo.trim(),
+    };
 
-      formData.append("jsonData", JSON.stringify(payload));
-      formData.append("file", other.logo);
+    try {
+      const utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
+      Object.assign(payload, utm);
+    } catch {}
 
-      try {
-        const res = await fetch("https://apis.pharmmaex.com/send-exbitor-mail", {
-          method: "POST",
-          body: formData,
-        });
-        const result = await res.json();
-        if (res.ok) {
-          setForm(initialState);
-          setOther(initialOtherState);
-          router.push("/thank-you");
-        } else {
-          setSubmitError("Oops! Something went wrong while submitting your form. Please try again later.");
-          if (result.error) console.error("Submission error:", result.error);
-        }
-      } catch (err) {
-        setSubmitError("Oops! Something went wrong while submitting your form. Please try again later.");
-        console.error("Error submitting form:", err);
+    formData.append("jsonData", JSON.stringify(payload));
+    formData.append("file", other.logo);
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("https://apis.pharmmaex.com/send-exbitor-mail", {
+        method: "POST",
+        body: formData,
+      });
+      if (res.ok) {
+        setForm(initialState);
+        setOther(initialOtherState);
+        router.push("/thank-you");
+        return;
       }
+      const result = await res.json().catch(() => null);
+      if (result?.error) console.error("Submission error:", result.error);
+      setSubmitError(getSubmitErrorMessage(res.status));
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setSubmitError(getSubmitErrorMessage());
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -210,7 +248,7 @@ const ExhibitorRegistrationPage = () => {
       </div>
       <div className={styles.formCard}>
         <h2 className={styles.formTitle}>Exhibitor Registration Form</h2>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form ref={formRef} className={styles.form} onSubmit={handleSubmit} noValidate>
           <div className="row g-3">
             {/* Render fields from config */}
             {formFields.map((field) => (
@@ -219,16 +257,15 @@ const ExhibitorRegistrationPage = () => {
                   type={field.type}
                   name={field.name}
                   placeholder={field.label}
-                  className={styles.input}
+                  aria-label={field.label}
+                  className={inputClass(field.name)}
                   value={form[field.name]}
                   onChange={handleChange}
-                  maxLength={field.name === "phone" ? 10 : undefined}
-                  inputMode={field.name === "phone" ? "numeric" : undefined}
-                  pattern={field.name === "phone" ? "[0-9]*" : undefined}
+                  maxLength={field.maxLength}
+                  inputMode={field.inputMode}
+                  {...errorProps(field.name)}
                 />
-                {errors[field.name] && (
-                  <div style={{ color: "red", fontSize: 12 }}>{errors[field.name]}</div>
-                )}
+                <FieldError name={field.name} message={errors[field.name]} />
               </div>
             ))}
 
@@ -256,9 +293,7 @@ const ExhibitorRegistrationPage = () => {
                       />{' '}Shell Space
                     </label>
                   </div>
-                  {errors.spaceType && (
-                    <div style={{ color: "red", fontSize: 12 }}>{errors.spaceType}</div>
-                  )}
+                  <FieldError name="spaceType" message={errors.spaceType} />
                 </div>
                 <div className="col-md-8">
                   <div className="row align-items-center justify-content-between">
@@ -266,23 +301,29 @@ const ExhibitorRegistrationPage = () => {
                       <input
                         type="number"
                         name="width"
-                        className={styles.input}
+                        className={inputClass("width")}
                         placeholder="W..."
+                        aria-label="Width (m)"
                         value={other.width}
                         onChange={handleChange}
-                        min="0"
+                        min="1"
+                        {...errorProps("width")}
                       />
+                      <FieldError name="width" message={errors.width} />
                     </div>
                     <div className="col">
                       <input
                         type="number"
                         name="length"
-                        className={styles.input}
+                        className={inputClass("length")}
                         placeholder="L..."
+                        aria-label="Length (m)"
                         value={other.length}
                         onChange={handleChange}
-                        min="0"
+                        min="1"
+                        {...errorProps("length")}
                       />
+                      <FieldError name="length" message={errors.length} />
                     </div>
                     <div className="col text-end">
                       <span>= {area} Sqm.</span>
@@ -308,21 +349,28 @@ const ExhibitorRegistrationPage = () => {
                         type="text"
                         name="stallNo"
                         placeholder="Stall No."
-                        className={styles.input}
+                        aria-label="Stall No."
+                        className={inputClass("stallNo")}
                         value={other.stallNo}
                         onChange={handleChange}
+                        maxLength={20}
+                        {...errorProps("stallNo")}
                       />
+                      <FieldError name="stallNo" message={errors.stallNo} />
                     </div>
                     <div className="col">
                       <input
                         type="number"
                         name="charges"
                         placeholder="Charges"
-                        className={styles.input}
+                        aria-label="Charges"
+                        className={inputClass("charges")}
                         value={other.charges}
                         onChange={handleChange}
-                        min="0"
+                        min="1"
+                        {...errorProps("charges")}
                       />
+                      <FieldError name="charges" message={errors.charges} />
                     </div>
                     <div className="col text-end">
                       <span>= {area} Sqm.</span>
@@ -346,9 +394,10 @@ const ExhibitorRegistrationPage = () => {
                     <div className="col-md-8">
                       <input
                         type="text"
-                        name="gst"
+                        name="gstAmount"
                         value={gst.toFixed(2)}
                         readOnly
+                        aria-label="GST (18%)"
                         className={styles.input}
                       />
                     </div>
@@ -373,11 +422,9 @@ const ExhibitorRegistrationPage = () => {
                         name="grandTotal"
                         value={grandTotal}
                         readOnly
+                        aria-label="Grand Total (incl. GST)"
                         className={styles.input}
                       />
-                      {errors.grandTotal && (
-                        <div style={{ color: "red", fontSize: 12 }}>{errors.grandTotal}</div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -390,7 +437,7 @@ const ExhibitorRegistrationPage = () => {
                 <div className="col-md-9">
                   <div className={styles.optionsRow}>
                     <span>Payment Mode</span>
-                    {["NEFT", "RTGS", "UPI", "Cheque"].map((mode) => (
+                    {PAYMENT_MODES.map((mode) => (
                       <label key={mode}>
                         <input
                           type="radio"
@@ -402,38 +449,33 @@ const ExhibitorRegistrationPage = () => {
                       </label>
                     ))}
                   </div>
-                  {errors.paymentMode && (
-                    <div style={{ color: "red", fontSize: 12 }}>{errors.paymentMode}</div>
-                  )}
+                  <FieldError name="paymentMode" message={errors.paymentMode} />
                 </div>
               </div>
             </div>
             {/* File Upload */}
             <div className="col-md-12">
               <div className="form-group">
-                <label>Upload your business logo for FASCIA name</label>
+                <label htmlFor="exhibitor-logo">Upload your business logo for FASCIA name</label>
                 <div className="custom-upload">
                   <input
+                    id="exhibitor-logo"
                     type="file"
                     name="logo"
-                    className={styles.fileInput}
+                    className={inputClass("logo", styles.fileInput)}
                     onChange={handleChange}
                     accept=".ai,.png,.pdf,.svg,.jpeg,.jpg,.cdr"
+                    {...errorProps("logo")}
                   />
-                  <span>(AI. PNG. PDF. SVG. JPEG. CDR)</span>
-                  {other.logo && (
+                  <span>(AI. PNG. PDF. SVG. JPEG. CDR — max {LOGO_RULES.maxSizeMB} MB)</span>
+                  {other.logo && !errors.logo && (
                     <span style={{ marginLeft: 10, color: 'green' }}>{other.logo.name}</span>
                   )}
-                  {errors.logo && (
-                    <div style={{ color: "red", fontSize: 12 }}>{errors.logo}</div>
-                  )}
+                  <FieldError name="logo" message={errors.logo} />
                 </div>
               </div>
             </div>
           </div>
-          {submitError && (
-            <div style={{ color: "red", marginTop: 16, fontWeight: 500, textAlign: "center" }}>{submitError}</div>
-          )}
           {/* Checkboxes */}
           <div className={styles.checkboxRow}>
             <label>
@@ -451,16 +493,20 @@ const ExhibitorRegistrationPage = () => {
                 name="agreeTerms"
                 checked={other.agreeTerms}
                 onChange={handleChange}
+                {...errorProps("agreeTerms")}
               />{' '}
               I accept the terms and conditions.
             </label>
-            {errors.agreeTerms && (
-              <div style={{ color: "red", fontSize: 12 }}>{errors.agreeTerms}</div>
-            )}
+            <FieldError name="agreeTerms" message={errors.agreeTerms} />
           </div>
+          {(submitError || hasFieldErrors) && (
+            <div className={styles.formAlert} role="alert">
+              {submitError || "Please correct the highlighted fields above."}
+            </div>
+          )}
           <div className={styles.submitRow}>
-            <button type="submit" className={styles.submitBtn}>
-              Submit
+            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>

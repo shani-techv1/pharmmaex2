@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import styles from "./Phase1.module.css";
 import detail from "./EventPage.module.css";
 import FAQ from "./FAQ";
+import { focusFirstError, validateForm } from "@/src/shared/validation";
 
 const LeadFormModal = dynamic(() => import("./LeadFormModal"), { ssr: false });
 
@@ -93,20 +94,44 @@ const GALLERY = [
   "/assests/img/gal2024/IMG-009.jpg",
 ];
 
+const CONTACT_SCHEMA = {
+  name: { label: "Full name", required: true, type: "name", minLength: 2, maxLength: 60 },
+  company: { label: "Company name", maxLength: 100 },
+  phone: { label: "Phone number", required: true, type: "phone" },
+  email: { label: "Email", required: true, type: "email", maxLength: 100 },
+  message: { label: "Message", maxLength: 1000 },
+};
+
 const ContactForm = ({ onSubmit }) => {
   const [data, setData] = useState({ name: "", company: "", phone: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [done, setDone] = useState(false);
 
-  const handle = (f) => (e) => setData({ ...data, [f]: e.target.value });
+  const handle = (f) => (e) => {
+    setData({ ...data, [f]: e.target.value });
+    if (errors[f]) setErrors({ ...errors, [f]: null });
+  };
+
+  const fieldProps = (f) => ({
+    name: f,
+    value: data[f],
+    onChange: handle(f),
+    className: errors[f] ? styles.inputError : "",
+    "aria-invalid": Boolean(errors[f]),
+    "aria-describedby": errors[f] ? `contact-${f}-error` : undefined,
+  });
+
+  const renderError = (f) =>
+    errors[f] && <span id={`contact-${f}-error`} className={styles.errorMsg}>{errors[f]}</span>;
 
   const submit = (e) => {
     e.preventDefault();
-    const errs = {};
-    if (!data.name.trim()) errs.name = "Required";
-    if (!/^[+\d][\d\s-]{8,}$/.test(data.phone)) errs.phone = "Valid phone required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email = "Valid email required";
-    if (Object.keys(errs).length) return setErrors(errs);
+    const errs = validateForm(data, CONTACT_SCHEMA);
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      focusFirstError(e.currentTarget, errs);
+      return;
+    }
     try {
       const list = JSON.parse(localStorage.getItem("pharmmaex_event_contact") || "[]");
       list.push({ ...data, ts: new Date().toISOString() });
@@ -130,34 +155,37 @@ const ContactForm = ({ onSubmit }) => {
       <div className={detail.row2}>
         <div className={styles.formField}>
           <label>Full Name</label>
-          <input value={data.name} onChange={handle("name")} placeholder="Rajesh Kumar" className={errors.name ? styles.inputError : ""} />
-          {errors.name && <span className={styles.errorMsg}>{errors.name}</span>}
+          <input aria-label="Full Name" placeholder="Rajesh Kumar" maxLength={60} {...fieldProps("name")} />
+          {renderError("name")}
         </div>
         <div className={styles.formField}>
           <label>Company</label>
-          <input value={data.company} onChange={handle("company")} placeholder="ABC Pharma Pvt. Ltd." />
+          <input aria-label="Company" placeholder="ABC Pharma Pvt. Ltd." maxLength={100} {...fieldProps("company")} />
+          {renderError("company")}
         </div>
       </div>
       <div className={detail.row2}>
         <div className={styles.formField}>
           <label>Phone</label>
-          <input type="tel" value={data.phone} onChange={handle("phone")} placeholder="+91 98765 43210" className={errors.phone ? styles.inputError : ""} />
-          {errors.phone && <span className={styles.errorMsg}>{errors.phone}</span>}
+          <input type="tel" aria-label="Phone" placeholder="+91 98765 43210" maxLength={14} {...fieldProps("phone")} />
+          {renderError("phone")}
         </div>
         <div className={styles.formField}>
           <label>Email</label>
-          <input type="email" value={data.email} onChange={handle("email")} placeholder="you@company.com" className={errors.email ? styles.inputError : ""} />
-          {errors.email && <span className={styles.errorMsg}>{errors.email}</span>}
+          <input type="email" aria-label="Email" placeholder="you@company.com" maxLength={100} {...fieldProps("email")} />
+          {renderError("email")}
         </div>
       </div>
       <div className={styles.formField}>
         <label>How can we help?</label>
         <textarea
           rows={4}
-          value={data.message}
-          onChange={handle("message")}
+          aria-label="How can we help?"
           placeholder="Tell us about your requirements..."
+          maxLength={1000}
+          {...fieldProps("message")}
         />
+        {renderError("message")}
       </div>
       <button type="submit" className={styles.btnPrimaryFull}>Send Enquiry</button>
     </form>
