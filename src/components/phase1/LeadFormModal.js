@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Phase1.module.css";
+import { focusFirstError, validateForm } from "@/src/shared/validation";
 
 const FORM_META = {
   stall: {
@@ -47,19 +48,24 @@ const PLACEHOLDERS = {
   preferredTime: "e.g. Today 4 PM",
 };
 
-const validate = (fields, data, optional = false) => {
-  const errors = {};
-  fields.forEach((f) => {
-    const v = (data[f] || "").trim();
-    if (!v) {
-      if (!optional) errors[f] = "Required";
-      return;
-    }
-    if (f === "phone" && !/^[+\d][\d\s-]{8,}$/.test(v)) errors[f] = "Enter a valid phone";
-    else if (f === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) errors[f] = "Enter a valid email";
-  });
-  return errors;
+const FIELD_RULES = {
+  name: { type: "name", minLength: 2, maxLength: 60 },
+  company: { minLength: 2, maxLength: 100 },
+  phone: { type: "phone" },
+  email: { type: "email", maxLength: 100 },
+  city: { minLength: 2, maxLength: 50 },
+  stallSize: { maxLength: 30 },
+  preferredTime: { maxLength: 50 },
 };
+
+// Optional forms (e.g. brochure) skip required checks but still validate the format of anything entered.
+const validate = (fields, data, optional = false) =>
+  validateForm(
+    data,
+    Object.fromEntries(
+      fields.map((f) => [f, { ...FIELD_RULES[f], label: LABELS[f], required: !optional }])
+    )
+  );
 
 const LeadFormModal = ({ type, prefill, onClose }) => {
   const meta = FORM_META[type];
@@ -93,6 +99,7 @@ const LeadFormModal = ({ type, prefill, onClose }) => {
     const errs = validate(meta.fields, data, meta.optional);
     if (Object.keys(errs).length) {
       setErrors(errs);
+      focusFirstError(e.currentTarget, errs);
       return;
     }
     try {
@@ -150,13 +157,20 @@ const LeadFormModal = ({ type, prefill, onClose }) => {
                   <label htmlFor={`f-${f}`}>{LABELS[f]}</label>
                   <input
                     id={`f-${f}`}
+                    name={f}
                     type={f === "email" ? "email" : f === "phone" ? "tel" : "text"}
                     placeholder={PLACEHOLDERS[f]}
                     value={data[f] || ""}
                     onChange={handleChange(f)}
                     className={errors[f] ? styles.inputError : ""}
+                    aria-invalid={Boolean(errors[f])}
+                    aria-describedby={errors[f] ? `f-${f}-error` : undefined}
                   />
-                  {errors[f] && <span className={styles.errorMsg}>{errors[f]}</span>}
+                  {errors[f] && (
+                    <span id={`f-${f}-error`} className={styles.errorMsg}>
+                      {errors[f]}
+                    </span>
+                  )}
                 </div>
               ))}
               <button type="submit" className={styles.btnPrimaryFull}>

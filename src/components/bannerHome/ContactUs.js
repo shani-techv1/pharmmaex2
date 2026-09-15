@@ -1,6 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { focusFirstError, validateForm } from '@/src/shared/validation';
+
+const CONTACT_SCHEMA = {
+  fullname: { label: 'Full name', required: true, type: 'name', minLength: 2, maxLength: 60 },
+  email: { label: 'Email', required: true, type: 'email', maxLength: 100 },
+  phone: { label: 'Phone number', required: true, type: 'phone' },
+  company: { label: 'Company/Organisation', maxLength: 100 },
+  designation: { label: 'Designation', maxLength: 60 },
+  city: { label: 'City', maxLength: 50 },
+  message: { label: 'Message', required: true, minLength: 10, maxLength: 1000 },
+};
+
 const ContactUs = () => {
+  const [errors, setErrors] = useState({});
+
+  // Blocks the native submit only when validation fails; valid submissions behave as before.
+  const handleSubmit = (e) => {
+    const values = Object.fromEntries(new FormData(e.currentTarget));
+    const validationErrors = validateForm(values, CONTACT_SCHEMA);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      e.preventDefault();
+      focusFirstError(e.currentTarget, validationErrors);
+    }
+  };
+
+  const clearError = (e) => {
+    const { name } = e.target;
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
+  };
+
+  const ariaProps = (name) => ({
+    'aria-invalid': Boolean(errors[name]),
+    'aria-describedby': errors[name] ? `${name}-error` : undefined,
+  });
+
+  const renderError = (name) =>
+    errors[name] && <span id={`${name}-error`} className="error-text">{errors[name]}</span>;
 
   return (
     <div className="contactUsFlexWrap">
@@ -26,34 +63,41 @@ const ContactUs = () => {
         </div>
       </div>
       <div className='contactRightBox'>
-        <form className="contactForm">
+        <form className="contactForm" noValidate onSubmit={handleSubmit} onChange={clearError}>
           <div className="form-row">
             <div className="form-group">
-              <input type="text" id="fullname" name="fullname" required placeholder="Full Name" />
+              <input type="text" id="fullname" name="fullname" required maxLength={60} placeholder="Full Name" aria-label="Full Name" className={errors.fullname ? 'input-error' : ''} {...ariaProps('fullname')} />
+              {renderError('fullname')}
             </div>
             <div className="form-group">
-              <input type="email" id="email" name="email" required placeholder="Email Address" />
+              <input type="email" id="email" name="email" required maxLength={100} placeholder="Email Address" aria-label="Email Address" className={errors.email ? 'input-error' : ''} {...ariaProps('email')} />
+              {renderError('email')}
             </div>
           </div>
           <div className="form-row">
             <div className="form-group">
-              <input type="text" id="phone" name="phone" required placeholder="Phone" />
+              <input type="tel" id="phone" name="phone" required maxLength={14} inputMode="numeric" placeholder="Phone" aria-label="Phone" className={errors.phone ? 'input-error' : ''} {...ariaProps('phone')} />
+              {renderError('phone')}
             </div>
             <div className="form-group">
-              <input type="text" id="company" name="company" placeholder="Company/Organisation" />
+              <input type="text" id="company" name="company" maxLength={100} placeholder="Company/Organisation" aria-label="Company/Organisation" className={errors.company ? 'input-error' : ''} {...ariaProps('company')} />
+              {renderError('company')}
             </div>
           </div>
           <div className="form-row">
             <div className="form-group">
-              <input type="text" id="designation" name="designation" placeholder="Designation" />
+              <input type="text" id="designation" name="designation" maxLength={60} placeholder="Designation" aria-label="Designation" className={errors.designation ? 'input-error' : ''} {...ariaProps('designation')} />
+              {renderError('designation')}
             </div>
             <div className="form-group">
-              <input type="text" id="city" name="city" placeholder="City" />
+              <input type="text" id="city" name="city" maxLength={50} placeholder="City" aria-label="City" className={errors.city ? 'input-error' : ''} {...ariaProps('city')} />
+              {renderError('city')}
             </div>
           </div>
           <div className="form-row">
             <div className="form-group full-width">
-              <textarea id="message" name="message" rows="3" required placeholder="Your Message"></textarea>
+              <textarea id="message" name="message" rows="3" required maxLength={1000} placeholder="Your Message" aria-label="Your Message" className={errors.message ? 'input-error' : ''} {...ariaProps('message')}></textarea>
+              {renderError('message')}
             </div>
           </div>
           {/* <div className="form-row align-center">
@@ -215,6 +259,16 @@ const ContactUs = () => {
                 }
                 .form-group.full-width {
                   flex: 1 1 100%;
+                }
+                .form-group input.input-error,
+                .form-group textarea.input-error {
+                  border-color: #dc3545;
+                }
+                .error-text {
+                  color: #dc3545;
+                  font-size: 0.8rem;
+                  margin-top: 0.3rem;
+                  padding-left: 0.9rem;
                 }
                 .align-center {
                   align-items: center;

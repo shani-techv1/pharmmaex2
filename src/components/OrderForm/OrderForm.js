@@ -2,6 +2,19 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import QRCode from "react-qr-code";
+import { getSubmitErrorMessage, validateField } from "@/src/shared/validation";
+
+const FIELD_RULES = {
+  firstName: { label: "First name", required: true, type: "name", minLength: 2, maxLength: 60 },
+  email: { label: "Email", required: true, type: "email", maxLength: 100 },
+  phone: { label: "Phone number", required: true, type: "phone" },
+  company: { label: "Company name", required: true, minLength: 2, maxLength: 100 },
+};
+
+// Adapts the shared validation rules to react-hook-form's `validate` option.
+const registerRules = (name) => ({
+  validate: (value) => validateField(value, FIELD_RULES[name]) || true,
+});
 
 export const OrderForm = (props) => {
   const { cart, totalPrices, open, setOpen } = props;
@@ -17,6 +30,7 @@ export const OrderForm = (props) => {
   const [disableStatus, setDisableStatus] = useState(false);
   const [formData, setFormData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const upiId = "9258002828@pz";
   const upiLink = `upi://pay?pa=${upiId}&pn=pharmmaex&am=${(
@@ -33,6 +47,7 @@ export const OrderForm = (props) => {
     if (!formData || isLoading) return;
 
     setIsLoading(true);
+    setSubmitError("");
     let utm = {};
     try {
       utm = JSON.parse(localStorage.getItem("pharmmaex_utm") || "{}");
@@ -51,24 +66,29 @@ export const OrderForm = (props) => {
           ...utm,
         }),
       });
-      const orderData = await orderRes.json();
+      const orderData = await orderRes.json().catch(() => null);
 
-      if (orderData?.status == 200) {
-        await fetch("https://apis.pharmmaex.com/extra-product-list", {
-          // await fetch("http://localhost:5001/extra-product-list", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...formData,
-            totalPrices: (totalPrices * 1.18).toFixed(2),
-            productTable: cart,
-            ...utm,
-          }),
-        });
-        router.push("/thank-you");
+      if (!orderRes.ok || orderData?.status != 200) {
+        setSubmitError(getSubmitErrorMessage(orderRes.ok ? 400 : orderRes.status));
+        setIsLoading(false);
+        return;
       }
+
+      await fetch("https://apis.pharmmaex.com/extra-product-list", {
+        // await fetch("http://localhost:5001/extra-product-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          totalPrices: (totalPrices * 1.18).toFixed(2),
+          productTable: cart,
+          ...utm,
+        }),
+      });
+      router.push("/thank-you");
     } catch (error) {
       console.error("Error in order process:", error);
+      setSubmitError(getSubmitErrorMessage());
       setIsLoading(false); // loading finish
     }
   };
@@ -81,18 +101,20 @@ export const OrderForm = (props) => {
             <form
               className="free-registration-form"
               onSubmit={handleSubmit(onSubmit)}
+              noValidate
             >
               <div className="form-box">
                 <div className="form-item">
                   <label htmlFor="fname">First Name:</label>
                   <input
                     type="text"
-                    {...register("firstName", { required: true })}
+                    {...register("firstName", registerRules("firstName"))}
                     placeholder="First Name"
+                    aria-invalid={Boolean(errors.firstName)}
                   />
                   {errors.firstName && (
                     <span className="error-message">
-                      First name is required
+                      {errors.firstName.message}
                     </span>
                   )}
                 </div>
@@ -100,16 +122,14 @@ export const OrderForm = (props) => {
                 <div className="form-item">
                   <label htmlFor="email">Enter Email:</label>
                   <input
-                    type="text"
-                    {...register("email", {
-                      required: true,
-                      pattern: /^\S+@\S+$/i,
-                    })}
+                    type="email"
+                    {...register("email", registerRules("email"))}
                     placeholder="Enter Email"
+                    aria-invalid={Boolean(errors.email)}
                   />
                   {errors.email && (
                     <span className="error-message">
-                      Valid Email is required
+                      {errors.email.message}
                     </span>
                   )}
                 </div>
@@ -117,13 +137,16 @@ export const OrderForm = (props) => {
                 <div className="form-item">
                   <label htmlFor="phone">Phone Number:</label>
                   <input
-                    type="number"
-                    {...register("phone", { required: true })}
+                    type="tel"
+                    inputMode="numeric"
+                    maxLength={14}
+                    {...register("phone", registerRules("phone"))}
                     placeholder="Phone Number"
+                    aria-invalid={Boolean(errors.phone)}
                   />
                   {errors.phone && (
                     <span className="error-message">
-                      Phone number is invalid
+                      {errors.phone.message}
                     </span>
                   )}
                 </div>
@@ -132,12 +155,13 @@ export const OrderForm = (props) => {
                   <label htmlFor="company">Company:</label>
                   <input
                     type="text"
-                    {...register("company", { required: true })}
+                    {...register("company", registerRules("company"))}
                     placeholder="Company"
+                    aria-invalid={Boolean(errors.company)}
                   />
                   {errors.company && (
                     <span className="error-message">
-                      Company name is required
+                      {errors.company.message}
                     </span>
                   )}
                 </div>
@@ -173,6 +197,12 @@ export const OrderForm = (props) => {
           <p className="text-center text-muted mb-4 small">
             If you have already made the payment, just click continue below.
           </p>
+
+          {submitError && (
+            <p className="text-center text-danger small mb-3" role="alert">
+              {submitError}
+            </p>
+          )}
 
           <button
             onClick={handleContinue}

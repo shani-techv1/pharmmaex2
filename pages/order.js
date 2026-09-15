@@ -2,16 +2,23 @@ import Footer from "@/src/components/bannerHome/Footer";
 import Header from "@/src/components/header/header";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import { validateForm } from "@/src/shared/validation";
+
+const LOGIN_SCHEMA = {
+  username: { label: "Username", required: true },
+  password: { label: "Password", required: true },
+};
 
 export default function Order() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loginError, setLoginError] = useState("");
+  const [loginFieldErrors, setLoginFieldErrors] = useState({});
 
   // Hardcoded credentials
-  const USERNAME = "admin";
-  const PASSWORD = "Admin@2025";
+  const USERNAME = "";
+  const PASSWORD = "";
 
   // ✅ Check localStorage on mount
   useEffect(() => {
@@ -26,6 +33,13 @@ export default function Order() {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
+
+    const fieldErrors = validateForm({ username, password }, LOGIN_SCHEMA);
+    setLoginFieldErrors(fieldErrors);
+    if (Object.keys(fieldErrors).length > 0) {
+      setLoginError("");
+      return;
+    }
 
     if (username === USERNAME && password === PASSWORD) {
       setIsAuthenticated(true);
@@ -106,9 +120,13 @@ export default function Order() {
               <input
                 type="text"
                 name="username"
-                className="form-control"
+                className={`form-control ${loginFieldErrors.username ? "is-invalid" : ""}`}
                 placeholder="Enter username"
+                aria-invalid={Boolean(loginFieldErrors.username)}
               />
+              {loginFieldErrors.username && (
+                <div className="invalid-feedback">{loginFieldErrors.username}</div>
+              )}
             </div>
 
             <div className="mb-3">
@@ -116,9 +134,13 @@ export default function Order() {
               <input
                 type="password"
                 name="password"
-                className="form-control"
+                className={`form-control ${loginFieldErrors.password ? "is-invalid" : ""}`}
                 placeholder="Enter password"
+                aria-invalid={Boolean(loginFieldErrors.password)}
               />
+              {loginFieldErrors.password && (
+                <div className="invalid-feedback">{loginFieldErrors.password}</div>
+              )}
             </div>
 
             {loginError && <p className="text-danger">{loginError}</p>}
