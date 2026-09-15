@@ -116,7 +116,7 @@ const Upcoming = () => {
           Download Brochure
         </a> */}
         <a
-          href="/assests/pdf/kolkataLayout.pdf"
+          href="/assests/pdf/PHARMMAEX-LAYOUT-AHMEDABAD.pdf"
           target="_blank"
           className="btn btn-success about-home-btn"
         >
