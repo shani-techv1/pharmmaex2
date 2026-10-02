@@ -12,15 +12,15 @@ const sponsors = [
     },
     {
       label: "Excellence Partner",
-      img: "/assests/img/NewPartnerLogo/EXCELLENCEPARTNER.jpg",
+      img: "/assests/img/NewPartnerlogo/EXCELLENCEPARTNER.jpg",
     },
     {
       label: "Growth Partner",
-      img: "/assests/img/NewPartnerLogo/GROWTHPARTNER.jpg",
+      img: "/assests/img/NewPartnerlogo/GROWTHPARTNER.jpg",
     },
     {
       label: "Innovation Partner",
-      img: "/assests/img/NewPartnerLogo/INNOVATIONPARTNER.jpg",
+      img: "/assests/img/NewPartnerlogo/INNOVATIONPARTNER.jpg",
     },
   ],
   [
@@ -31,7 +31,7 @@ const sponsors = [
     //
     {
       label: "Gold Partner",
-      img: "/assests/img/NewPartnerLogo/GOLDPARTNER.jpg",
+      img: "/assests/img/NewPartnerlogo/GOLDPARTNER.jpg",
     },
     {
       label: "Associate Partner",
@@ -61,7 +61,7 @@ const sponsors = [
     },
     {
       label: "Association-06",
-      img: "/assests/img/NewPartnerLogo/FGSCDA.png",
+      img: "/assests/img/NewPartnerlogo/FGSCDA.png",
     },
   ],
 ];
