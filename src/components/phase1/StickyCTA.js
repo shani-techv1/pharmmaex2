@@ -5,10 +5,18 @@ const StickyCTA = ({ onBookStall, onCallback }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 600);
+    const onScroll = () => {
+      const visible = window.scrollY > 600;
+      setShow(visible);
+      // Keeps the footer copyright above the fixed bar and side buttons.
+      document.body.classList.toggle("has-sticky-cta", visible);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.body.classList.remove("has-sticky-cta");
+    };
   }, []);
 
   if (!show) return null;
@@ -23,10 +31,18 @@ const StickyCTA = ({ onBookStall, onCallback }) => {
           <span className={styles.stickyEntry}>Visitor Entry Free</span>
         </div>
         <div className={styles.stickyActions}>
-          <button type="button" className={styles.btnGhostSm} onClick={onCallback}>
+          <button
+            type="button"
+            className={styles.btnGhostSm}
+            onClick={onCallback}
+          >
             Request Callback
           </button>
-          <button type="button" className={styles.btnPrimarySm} onClick={onBookStall}>
+          <button
+            type="button"
+            className={styles.btnPrimarySm}
+            onClick={onBookStall}
+          >
             Book Stall
           </button>
           <a

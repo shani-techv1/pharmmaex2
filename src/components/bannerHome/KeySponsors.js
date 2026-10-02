@@ -3,25 +3,25 @@ import "./KeySponser.module.css";
 const sponsors = [
   [
     {
-      label: "Endorsed By",
+      label: "Presenting Partner",
       img: "/assests/img/Sponsor Logo/Sponsor Logo/Endorsed By.png",
     },
     {
-      label: "Industry Leaders",
+      label: "Industry Partner",
       img: "/assests/img/Sponsor Logo/Sponsor Logo/Industry-Leader.png",
     },
     {
-      label: "Top Rankers",
-      img: "/assests/img/Sponsor Logo/Sponsor Logo/Top-Ranker.png",
+      label: "Excellence Partner",
+      img: "/assests/img/NewPartnerLogo/EXCELLENCEPARTNER.jpg",
     },
     {
-      label: "Pharma Player",
-      img: "/assests/img/Sponsor Logo/Sponsor Logo/Pharma-Champion.png",
+      label: "Growth Partner",
+      img: "/assests/img/NewPartnerLogo/GROWTHPARTNER.jpg",
     },
     {
-      label: "Pharma Champion",
-      img: "/assests/img/Sponsor Logo/Sponsor Logo/Supported-Partner.png",
-    }
+      label: "Innovation Partner",
+      img: "/assests/img/NewPartnerLogo/INNOVATIONPARTNER.jpg",
+    },
   ],
   [
     // {
@@ -30,8 +30,12 @@ const sponsors = [
     // },
     //
     {
-      label: "Affilated Partner",
-      img: "/assests/img/Sponsor Logo/Sponsor Logo/Affilate-Partner.jpg",
+      label: "Gold Partner",
+      img: "/assests/img/NewPartnerLogo/GOLDPARTNER.jpg",
+    },
+    {
+      label: "Associate Partner",
+      img: "/assests/img/Sponsor Logo/Sponsor Logo/Supported-Partner.png",
     },
     {
       label: "Association-01",
@@ -44,7 +48,7 @@ const sponsors = [
     {
       label: "Association-03",
       img: "/assests/img/Sponsor Logo/Sponsor Logo/Association-03.jpg",
-    }
+    },
   ],
   [
     {
@@ -54,8 +58,12 @@ const sponsors = [
     {
       label: "Association-05",
       img: "/assests/img/Sponsor Logo/Sponsor Logo/AssociationLogo.png",
-    }
-  ]
+    },
+    {
+      label: "Association-06",
+      img: "/assests/img/NewPartnerLogo/FGSCDA.png",
+    },
+  ],
 ];
 
 const KeySponsors = () => {
@@ -84,6 +92,19 @@ const KeySponsors = () => {
               ))}
             </div>
           ))}
+        </div>
+
+        <div className="organized-by">
+          <div className="organized-by-stage">
+            <div className="organized-by-card">
+              <span className="organized-by-pill">Organized By</span>
+              <img
+                src="/assests/img/dev-logo-light.svg"
+                alt="Devasya Media"
+                className="organized-by-logo"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -54,7 +54,7 @@ const BannerHome = () => {
       <div className="container position-relative h-100 z-3">
         <div
           className="row align-items-center h-100"
-          style={{ minHeight: "80vh" }}
+          style={{ minHeight: "81vh" }}
         >
           {/* Countdown Box */}
           <div className="col-lg-1 col-md-4 mb-4 mb-md-0 countdownBoxArea">
@@ -114,8 +114,11 @@ const BannerHome = () => {
             </span>
             <h1 className={styles.bannerTitle}>
               Connect with 500+ pharma companies, manufacturers, packing
-              materials, raw ingredients & 
-              <span className={styles.bannerTitleAccent}> franchises under one roof.</span>
+              materials, raw ingredients &
+              <span className={styles.bannerTitleAccent}>
+                {" "}
+                franchises under one roof.
+              </span>
             </h1>
             {/* <p className={styles.bannerSubtitle}>
               Connect with 500+ verified pharma companies, distributors and

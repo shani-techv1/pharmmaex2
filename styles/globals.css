@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-  --primary-color: #00833D;
+  --primary-color: #00833d;
   --secondary-color: #ffff;
   --text-color: #000000;
   --text-secondary-color: #666666;
-  --border-color: #E0E0E0;
-  --background-color: #FFFFFF;
-  --hover-color: #F5F5F5;
+  --border-color: #e0e0e0;
+  --background-color: #ffffff;
+  --hover-color: #f5f5f5;
   --text-color-dull: #111111;
 
   /* ===== Phase 1 / Phase 2 design tokens ===== */
-  --p1-primary: #00833D;
+  --p1-primary: #00833d;
   --p1-primary-dark: #006b32;
   --p1-primary-light: #e6f4ec;
   --p1-accent: #ffb703;
@@ -57,7 +57,6 @@ a,
 li,
 span,
 p {
-
   font-family: "Rubik", sans-serif;
 }
 
@@ -81,7 +80,7 @@ img {
 }
 
 .btn-success {
-  background-color: #00833D !important;
+  background-color: #00833d !important;
 }
 
 ul {
@@ -126,7 +125,7 @@ header .dropdown-item {
 }
 header .dropdown-item:hover {
   background: rgba(0, 131, 61, 0.08);
-  color: #00833D;
+  color: #00833d;
 }
 header .dropdown-divider {
   margin: 0.4rem 0.5rem;
@@ -158,9 +157,9 @@ header .dropdown-divider {
   cursor: pointer;
 }
 .header-cta-primary {
-  background: #00833D;
+  background: #00833d;
   color: #ffffff;
-  border: 1px solid #00833D;
+  border: 1px solid #00833d;
   box-shadow: 0 8px 18px -10px rgba(0, 131, 61, 0.5);
 }
 .header-cta-primary:hover {
@@ -172,13 +171,13 @@ header .dropdown-divider {
 }
 .header-cta-ghost {
   background: #ffffff;
-  color: #00833D;
+  color: #00833d;
   border: 1px solid rgba(0, 131, 61, 0.3);
 }
 .header-cta-ghost:hover {
-  background: #00833D;
+  background: #00833d;
   color: #ffffff !important;
-  border-color: #00833D;
+  border-color: #00833d;
   transform: translateY(-1px);
 }
 
@@ -192,10 +191,10 @@ header .navbar-nav .nav-link {
   transition: color 0.2s;
 }
 header .navbar-nav .nav-link:hover {
-  color: #00833D;
+  color: #00833d;
 }
 header .navbar-nav .nav-link.active {
-  color: #00833D !important;
+  color: #00833d !important;
 }
 
 @media (max-width: 1280px) {
@@ -252,7 +251,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .topBarRightInfo h3 span {
-  color: #00833D;
+  color: #00833d;
 }
 
 .websiteLogo {
@@ -267,11 +266,11 @@ header .navbar-nav .nav-link.active {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: #00833D !important;
+  color: #00833d !important;
 }
 
 /* Show first-level dropdown on hover */
-.nav-item.dropdown:hover>.dropdown-menu {
+.nav-item.dropdown:hover > .dropdown-menu {
   display: block;
   margin-top: 0;
   opacity: 1;
@@ -292,7 +291,7 @@ header .navbar-nav .nav-link.active {
   position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: 0;
@@ -304,7 +303,7 @@ header .navbar-nav .nav-link.active {
 }
 
 /* Show submenu on hover */
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
   visibility: visible;
   opacity: 1;
@@ -318,7 +317,7 @@ header .navbar-nav .nav-link.active {
 }
 
 @media (max-width: 991px) {
-  .dropdown-submenu>.dropdown-menu {
+  .dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 30%;
     margin-top: 0;
@@ -329,7 +328,6 @@ header .navbar-nav .nav-link.active {
     transition: all 0.3s ease;
   }
 }
-
 
 /* JoinPharma section styles */
 .join-pharma-section {
@@ -384,7 +382,7 @@ header .navbar-nav .nav-link.active {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: #00833D;
+  background: #00833d;
   border-radius: 100px;
   padding: 10px;
 }
@@ -402,7 +400,11 @@ header .navbar-nav .nav-link.active {
 
 /* ExhibitionSeries section styles */
 .exhibition-series-section {
-  background: radial-gradient(81.85% 81.85% at 50% 50%, #00833D 0%, #000000 100%);
+  background: radial-gradient(
+    81.85% 81.85% at 50% 50%,
+    #00833d 0%,
+    #000000 100%
+  );
 
   color: #fff;
 }
@@ -464,35 +466,32 @@ header .navbar-nav .nav-link.active {
   border: 1px solid #fff;
   color: #fff;
   background: transparent;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .exhibition-series-btn-group .exhibition-series-btn:hover {
   background: #fff;
-  color: #00833D;
+  color: #00833d;
 }
 
 .exhibition-series-card {
-
-
   border-radius: 1.25rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-
 }
 
 .exhibition-series-card-img {
   width: 100%;
   height: 160px;
   object-fit: cover;
-
 }
 
 .exhibition-series-card-details {
   color: #fff;
   font-size: 1rem;
-
 }
 
 .exhibition-series-card-btn {
@@ -502,7 +501,9 @@ header .navbar-nav .nav-link.active {
   border: 1px solid #fff;
   color: #fff;
   background: transparent;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -515,7 +516,7 @@ header .navbar-nav .nav-link.active {
 
 .exhibition-series-card-btn:hover {
   background: #fff;
-  color: #00833D;
+  color: #00833d;
 }
 
 .exhibition-series-card-btn:hover img {
@@ -526,10 +527,9 @@ header .navbar-nav .nav-link.active {
   filter: none;
 }
 
-
 /* WhatsInExhibition section styles */
 .whats-in-exhibition-section {
-  background: url('/assests/img/bg-what.svg') center center/cover no-repeat;
+  background: url("/assests/img/bg-what.svg") center center/cover no-repeat;
   min-height: 240px;
   display: flex;
   align-items: center;
@@ -554,7 +554,6 @@ header .navbar-nav .nav-link.active {
 }
 
 .whats-in-exhibition-box {
-
   border-radius: 1.2rem;
   width: 210px;
   height: 180px;
@@ -562,7 +561,7 @@ header .navbar-nav .nav-link.active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   color: #fff;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
@@ -637,7 +636,7 @@ header .navbar-nav .nav-link.active {
 
 .pharma-connections-card {
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   border-radius: 1.2rem;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -650,7 +649,7 @@ header .navbar-nav .nav-link.active {
 
 .pharma-connections-card {
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   border-radius: 1.2rem;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -733,7 +732,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .eligibility-exhibitors-card {
-  background: #00833D;
+  background: #00833d;
 
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
@@ -807,7 +806,7 @@ header .navbar-nav .nav-link.active {
 /* KeySponsors section styles */
 .key-sponsors-section {
   background: #fafafa;
-  padding: 56px 0 32px 0;
+  padding: 56px 0 48px 0;
 }
 
 .key-sponsors-container {
@@ -832,7 +831,7 @@ header .navbar-nav .nav-link.active {
 
 .key-sponsors-card {
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   border-radius: 1.2rem;
   padding: 1.2rem 1.2rem;
   min-width: 220px;
@@ -849,7 +848,7 @@ header .navbar-nav .nav-link.active {
   font-size: 1.08rem;
   font-weight: 500;
   margin-bottom: 0.7rem;
-  border-bottom: 1px solid #D8D8D8
+  border-bottom: 1px solid #d8d8d8;
 }
 
 .key-sponsors-img {
@@ -875,6 +874,75 @@ header .navbar-nav .nav-link.active {
   }
 }
 
+.organized-by {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.6rem;
+}
+
+.organized-by-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(460px, 100%);
+  padding: 22px 0 8px;
+}
+
+.organized-by-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 46px 48px 30px;
+  background: #fff;
+  border-radius: 22px;
+  border: 1px solid #ececec;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.organized-by-pill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 11px 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #a45cff 0%, #7b2fe0 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px rgba(123, 47, 224, 0.38);
+}
+
+.organized-by-logo {
+  width: min(300px, 72vw);
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .organized-by-stage {
+    padding: 20px 0 4px;
+  }
+
+  .organized-by-card {
+    padding: 38px 22px 22px;
+    border-radius: 18px;
+  }
+
+  .organized-by-pill {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    padding: 9px 20px;
+  }
+}
+
 /* OurExhibitors section styles */
 .our-exhibitors-section {
   background: #fff;
@@ -886,8 +954,6 @@ header .navbar-nav .nav-link.active {
   margin-left: -50vw;
   margin-right: -50vw;
 }
-
-
 
 .our-exhibitors-heading {
   color: #111;
@@ -903,7 +969,7 @@ header .navbar-nav .nav-link.active {
 
 .our-exhibitors-card {
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   border-radius: 1.2rem;
   padding: 1.2rem 2.2rem;
   min-width: 170px;
@@ -935,7 +1001,6 @@ header .navbar-nav .nav-link.active {
   min-width: 0;
   width: 100%;
   padding: 1.2rem 1.2rem;
-
 }
 
 .our-exhibitors-carousel-item {
@@ -972,8 +1037,6 @@ header .navbar-nav .nav-link.active {
   overflow-x: hidden;
 }
 
-
-
 .client-reviews-heading {
   color: #111;
   font-size: 2.2rem;
@@ -987,13 +1050,15 @@ header .navbar-nav .nav-link.active {
   font-weight: 500;
   font-size: 1.08rem;
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   color: #222;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .client-reviews-more-btn:hover {
-  background: #00833D;
+  background: #00833d;
   color: #fff;
 }
 
@@ -1005,7 +1070,7 @@ header .navbar-nav .nav-link.active {
 
 .client-reviews-card {
   background: #fff;
-  border: 1.5px solid #D9D9D9;
+  border: 1.5px solid #d9d9d9;
   border-radius: 1.2rem;
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -1043,14 +1108,14 @@ header .navbar-nav .nav-link.active {
 }
 
 .client-reviews-star {
-  color: #FFD600;
+  color: #ffd600;
   font-size: 1.1em;
   margin-left: 1px;
 }
 
 .client-reviews-text {
   color: #222;
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin-top: 0.7rem;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -1114,6 +1179,12 @@ header .navbar-nav .nav-link.active {
   overflow: hidden;
 }
 
+/* Sticky CTA + Floor Plan/Brochure sit over the bottom of the page.
+   This padding lets the copyright row scroll fully into view. */
+body.has-sticky-cta .footer-section {
+  padding-bottom: 70px;
+}
+
 .footer-bg {
   position: absolute;
   top: 0;
@@ -1128,7 +1199,7 @@ header .navbar-nav .nav-link.active {
   width: 100vw;
   height: 320px;
   object-fit: fill;
-  object-position:bottom;
+  object-position: bottom;
   display: block;
 }
 
@@ -1236,7 +1307,6 @@ header .navbar-nav .nav-link.active {
 }
 
 .footer-logo {
-
   margin-bottom: 1.2rem;
 }
 
@@ -1265,7 +1335,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .footer-title {
-  color: #73BF45;
+  color: #73bf45;
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -1288,7 +1358,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .footer-social-icons a img:hover {
-  background: #00833D;
+  background: #00833d;
 }
 
 .footer-links {
@@ -1357,7 +1427,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .footer-floating-icons a img:hover {
-  background: #00833D;
+  background: #00833d;
 }
 
 @media (max-width: 991px) {
@@ -1371,11 +1441,11 @@ header .navbar-nav .nav-link.active {
     padding-top: 80px;
   }
 
-  .footer-logo {}
+  .footer-logo {
+  }
 }
 
 @media (max-width: 700px) {
-
   .footer-bg,
   .footer-bg-img,
   .footer-bg-overlay {
@@ -1402,7 +1472,6 @@ header .navbar-nav .nav-link.active {
     text-align: center;
   }
 }
-
 
 .innerpage-banner-section {
   position: relative;
@@ -1456,7 +1525,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .innerpage-banner-breadcrumb-active {
-  color: #00833D;
+  color: #00833d;
   font-weight: 500;
 }
 
@@ -1517,7 +1586,7 @@ header .navbar-nav .nav-link.active {
   max-width: 520px;
   border-radius: 2rem;
   object-fit: cover;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 991px) {
@@ -1538,7 +1607,6 @@ header .navbar-nav .nav-link.active {
 .pastExhibitionsArea .row.pastrow:nth-child(even) {
   flex-direction: row-reverse;
   margin-bottom: 40px;
-
 }
 
 .no-scroll {
@@ -1549,11 +1617,9 @@ header .navbar-nav .nav-link.active {
   margin: auto;
 }
 
-
-
 .registration-section {
   padding: 80px 0 160px;
-  background: #FAFAFA;
+  background: #fafafa;
 }
 
 .registration-section h3 {
@@ -1567,20 +1633,20 @@ header .navbar-nav .nav-link.active {
 
 .registration-section h3 small {
   display: block;
-  color: #73BF45;
+  color: #73bf45;
   font-size: 48px;
-  font-family: 'british_shorthairregular';
+  font-family: "british_shorthairregular";
 }
 
 .registration-section .free-registration-form {
-  margin-top: 60px
+  margin-top: 60px;
 }
 
 .registration-section .form-box {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 60px
+  margin-bottom: 60px;
 }
 
 .registration-section .form-item {
@@ -1590,7 +1656,7 @@ header .navbar-nav .nav-link.active {
 }
 
 .registration-section .form-item label {
-  display: none
+  display: none;
 }
 
 .registration-section .form-item input {
@@ -1601,7 +1667,6 @@ header .navbar-nav .nav-link.active {
   color: #03833d;
   outline: 0;
   background: transparent;
-
 }
 
 .registration-section .form-item select {
@@ -1614,7 +1679,6 @@ header .navbar-nav .nav-link.active {
   background: transparent;
   position: relative;
   bottom: -3px;
-
 }
 
 .registration-section .form-item input:focus-visible {
@@ -1630,15 +1694,13 @@ header .navbar-nav .nav-link.active {
   border: 0;
   padding: 10px 40px;
   margin: auto;
-  display: flex
+  display: flex;
 }
 
 .registration-section .submit-reg-form:hover {
   background-color: #0c1728;
   color: #fff;
 }
-
-
 
 .prdcutListArae {
   position: relative;
@@ -1729,20 +1791,23 @@ header .navbar-nav .nav-link.active {
 }
 
 .prdcutListArae .card-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-align: center;
 }
 
 .prdcutListArae .card-1:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .prdcutListArae .input-group {
   justify-content: center;
   gap: 15px;
 }
-
 
 .prdcutListArae h1 {
   text-transform: uppercase;
