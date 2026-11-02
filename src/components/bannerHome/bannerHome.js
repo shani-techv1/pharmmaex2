@@ -37,15 +37,22 @@ const BannerHome = () => {
   return (
     <section className={styles.bannerHomeSection}>
       {/* Background Image (desktop + mobile) */}
-      <img
+      <video
         className={`${styles.bannerImage} ${styles.bannerImageDesktop}`}
-        src="/assests/img/home-banner-desktop.png"
+        src="https://agiledigitaledge.dev/pharmmaex/pharmmaexvideo.mp4"
         alt="PharmmaEx home banner"
+        autoPlay
+        muted
+        loop
       />
-      <img
+      
+      <video
         className={`${styles.bannerImage} ${styles.bannerImageMobile}`}
-        src="/assests/img/home-banner-mobile.png"
+        src="https://agiledigitaledge.dev/pharmmaex/pharmmaexvideo.mp4"
         alt="PharmmaEx home banner"
+        autoPlay
+        muted
+        loop
       />
       {/* Overlay */}
       <div className={styles.overlay}></div>
