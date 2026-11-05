@@ -48,7 +48,7 @@ const BannerHome = () => {
       
       <video
         className={`${styles.bannerImage} ${styles.bannerImageMobile}`}
-        src="https://agiledigitaledge.dev/pharmmaex/pharmmaexvideo.mp4"
+        src="https://agiledigitaledge.dev/pharmmaex/pharmmaexvideomobile.mp4"
         alt="PharmmaEx home banner"
         autoPlay
         muted
